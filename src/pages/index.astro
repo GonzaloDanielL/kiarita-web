@@ -1,11 +1,324 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import data from "../data/datos.json";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import TituloSecciones from "../components/shared/tituloSecciones.astro";
+import ContenedorSecciones from "../components/shared/contenedorSecciones.astro";
+import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
+import InputNormal from "../components/ui/InputNormal.astro";
+import InputArea from "../components/ui/InputArea.astro";
+import BotonSecundario from "../components/ui/BotonSecundario.astro";
+import { MapPin, Phone, Users, Facebook, Linkedin } from "@lucide/astro";
+import ContenedorDatos from "../components/shared/contenedorDatos.astro";
+import DatosCuadro from "../components/shared/datosCuadro.astro";
+import LinkPagina from "../components/shared/linkPagina.astro";
+import PeriodosFechas from "../components/shared/periodosFechas.astro";
+import Mapa from "../components/ui/mapa.astro";
+
+import imagenProducto from "/src/assets/imagenes/inicio-producto.jpg";
+
+const { titulo, subtitulo, video } = data.paginas.inicio.hero;
+const {
+    titulo: tituloLiderazgo,
+    imagenes,
+    cta_texto,
+    cta_enlace,
+} = data.paginas.inicio.liderazgo;
+const {
+    titulo: tituloProducto,
+    descripcion,
+    imagen: imagen_producto,
+    cta_texto: cta_texto_producto,
+    cta_enlace: cta_enlace_producto,
+} = data.paginas.inicio.producto;
+
+const {
+    titulo: tituloGarantia,
+    descripcion: descripcion_garantia,
+    cta_texto: cta_texto_garantia,
+    cta_enlace: cta_enlace_garantia,
+} = data.paginas.inicio.garantia;
+
+const { certificaciones } = data.global;
+
+const { descripcion_corta } = data.global.empresa;
+const { anios, trabajadores } = data.global.estadisticas;
+
+const { titulo: tituloContacto, formulario } = data.paginas.inicio.contacto;
+const { direccion, telefonos } = data.global.contacto;
+
+// --- LÓGICA DE IMÁGENES ---
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const getImagePath = (jsonPath: string) => {
+    const fullPath = `/src/assets${jsonPath}`;
+    if (!localImages[fullPath])
+        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
+    return localImages[fullPath]();
+};
 ---
 
 <Layout>
-	<Welcome />
+    <!-- Hero inicio -->
+    <section
+        class="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center overflow-hidden"
+    >
+        <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover z-0"
+        >
+            <source src={video} type="video/webm" />
+            <source src={video.replace(".webm", ".mp4")} type="video/mp4" />
+        </video>
+
+        <div class="absolute inset-0 bg-kiarita-black/60 z-10"></div>
+
+        <div class="relative z-20 px-6 max-w-4xl mx-auto mt-16 md:mt-0">
+            <h1
+                class="font-commissioner font-extrabold text-5xl md:text-6xl text-kiarita-white mb-6 uppercase leading-tight drop-shadow-lg"
+            >
+                {titulo}
+            </h1>
+
+            <p
+                class="font-inter text-lg md:text-lg text-kiarita-gray-lighter drop-shadow-md"
+            >
+                {subtitulo}
+            </p>
+        </div>
+    </section>
+
+    <!-- About inicio -->
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones tipo="izquierda">
+            <div class="relative h-[450px] md:h-[550px]">
+                <Image
+                    src={getImagePath(imagenes[0])}
+                    alt="Vista de campos Fundo La Kiarita"
+                    class="absolute top-0 left-0 w-2/3 h-2/3 object-cover rounded-2xl shadow-lg z-10 border-5 border-kiarita-white"
+                    width={600}
+                    height={400}
+                />
+                <Image
+                    src={getImagePath(imagenes[1])}
+                    alt="Trabajadora de Fundo La Kiarita"
+                    class="absolute top-1/4 right-0 w-1/2 h-1/2 object-cover rounded-2xl shadow-xl z-20 border-4 border-kiarita-white"
+                    width={400}
+                    height={200}
+                />
+                <Image
+                    src={getImagePath(imagenes[2])}
+                    alt="Detalle de cosecha Fundo La Kiarita"
+                    class="absolute bottom-0 left-[10%] w-[45%] h-2/5 object-cover rounded-2xl shadow-xl z-30 border-5 border-kiarita-white"
+                    width={200}
+                    height={100}
+                />
+            </div>
+        </SubContenedorSecciones>
+
+        <SubContenedorSecciones tipo="derecha">
+            <TituloSecciones
+                title={tituloLiderazgo}
+                descripcion={descripcion_corta}
+            />
+
+            <ContenedorDatos>
+                <DatosCuadro numero={anios} texto="Años" />
+                <DatosCuadro numero={trabajadores} texto="Trabajadores" />
+            </ContenedorDatos>
+
+            <LinkPagina texto={cta_texto} enlace={cta_enlace} />
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- Producto inicio -->
+    <ContenedorSecciones color="bg-kiarita-purple-light">
+        <SubContenedorSecciones tipo="izquierda">
+            <TituloSecciones
+                title={tituloProducto}
+                descripcion={descripcion}
+                colorTitulo="text-kiarita-purple"
+            />
+            <PeriodosFechas />
+            <LinkPagina
+                texto={cta_texto_producto}
+                enlace={cta_enlace_producto}
+                hoverColor="hover:text-kiarita-purple"
+            />
+        </SubContenedorSecciones>
+
+        <div class="w-full h-full">
+            <Image
+                src={imagenProducto}
+                alt="Higo Fundo La Kiarita"
+                class="w-full h-full object-cover object-[10%]"
+                width={800}
+                height={600}
+            />
+        </div>
+    </ContenedorSecciones>
+
+    <!-- Garantia inicio -->
+    <ContenedorSecciones color="bg-kiarita-green-dark">
+        <SubContenedorSecciones tipo="izquierda" height="h-full">
+            <Mapa />
+        </SubContenedorSecciones>
+        <SubContenedorSecciones tipo="derecha">
+            <TituloSecciones
+                title={tituloGarantia}
+                descripcion={descripcion_garantia}
+                colorTitulo="text-kiarita-white"
+                colorTexto="text-kiarita-gray-lighter"
+            />
+
+            <LinkPagina
+                texto={cta_texto_garantia}
+                enlace={cta_enlace_garantia}
+                color="text-kiarita-gray-lighter"
+                hoverColor="hover:text-kiarita-white"
+            />
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <ContenedorSecciones color="bg-kiarita-white" tipo="limpio">
+        <div class="flex flex-col items-center py-24 xl:py-32 w-full">
+            <h2
+                class="font-commissioner font-bold text-1xl lg:text-2xl uppercase leading-tight text-kiarita-green mb-10"
+            >
+                Nuestras Certificaciones
+            </h2>
+            <div class="w-full flex justify-center gap-25 flex-wrap">
+                <Image
+                    src={getImagePath(certificaciones[0].imagen)}
+                    alt="Vista de campos Fundo La Kiarita"
+                    class="w-auto h-28 object-contain"
+                />
+                <Image
+                    src={getImagePath(certificaciones[1].imagen)}
+                    alt="Vista de campos Fundo La Kiarita"
+                    class="w-auto h-28 object-contain"
+                    width={600}
+                />
+                <Image
+                    src={getImagePath(certificaciones[2].imagen)}
+                    alt="Vista de campos Fundo La Kiarita"
+                    class="w-auto h-28 object-contain"
+                    width={600}
+                />
+                <Image
+                    src={getImagePath(certificaciones[3].imagen)}
+                    alt="Vista de campos Fundo La Kiarita"
+                    class="w-auto h-28 object-contain"
+                    width={600}
+                />
+                <Image
+                    src={getImagePath(certificaciones[4].imagen)}
+                    alt="Vista de campos Fundo La Kiarita"
+                    class="w-auto h-28 object-contain"
+                    width={600}
+                />
+            </div>
+        </div>
+    </ContenedorSecciones>
+    <ContenedorSecciones
+        color="bg-kiarita-gray-lighter py-24 px-6 lg:px-[80px] xl:px-[250px]"
+        tipo="limpio"
+    >
+        <div class="max-w-6xl mx-auto">
+            <h2
+                class="font-commissioner font-extrabold text-4xl lg:text-4xl text-kiarita-green text-center uppercase mb-16"
+            >
+                {tituloContacto}
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                <div class="flex flex-col gap-10">
+                    <div>
+                        <h4
+                            class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-2"
+                        >
+                            <MapPin class="w-6 h-6" />
+                            Dirección
+                        </h4>
+                        <p
+                            class="font-inter text-kiarita-gray-dark pl-9 leading-relaxed"
+                        >
+                            {direccion}
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-2"
+                        >
+                            <Phone class="w-6 h-6" />
+                            Teléfono
+                        </h4>
+                        <p
+                            class="font-inter text-kiarita-gray-dark pl-9 leading-relaxed"
+                        >
+                            {telefonos[0]} / {telefonos[1]}
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-4"
+                        >
+                            <Users class="w-6 h-6" />
+                            Síguenos en:
+                        </h4>
+                        <div class="flex gap-4 pl-9">
+                            <a
+                                href="#"
+                                class="text-[#1877F2] hover:opacity-80 transition-opacity"
+                                aria-label="Facebook"
+                            >
+                                <Facebook class="w-8 h-8 fill-current" />
+                            </a>
+                            <a
+                                href="#"
+                                class="text-[#0A66C2] hover:opacity-80 transition-opacity"
+                                aria-label="LinkedIn"
+                            >
+                                <Linkedin class="w-8 h-8 fill-current" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="flex flex-col gap-6">
+                    <InputNormal
+                        id="nombre"
+                        label={formulario.campos[0]}
+                        type="text"
+                    />
+
+                    <InputNormal
+                        id="email"
+                        label={formulario.campos[1]}
+                        type="email"
+                    />
+
+                    <InputArea id="mensaje" label={formulario.campos[2]} />
+
+                    <div class="mt-2">
+                        <BotonSecundario texto={formulario.boton} />
+                        <p
+                            class="font-inter text-xs text-kiarita-gray text-left mt-3 px-4"
+                        >
+                            {formulario.nota}
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </ContenedorSecciones>
 </Layout>

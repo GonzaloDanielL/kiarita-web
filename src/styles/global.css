@@ -1,0 +1,27 @@
+/* Importamos las fuentes de Google Fonts primero */
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* Tipografías */
+  --font-inter: 'Inter', sans-serif;
+  --font-commissioner: 'Commissioner', sans-serif;
+
+  /* Tonos Neutros */
+  --color-kiarita-black: #222222;
+  --color-kiarita-gray-dark: #4D4D4D;
+  --color-kiarita-gray: #8F8F8F;
+  --color-kiarita-gray-light: #CBCBCB;
+  --color-kiarita-gray-lighter: #F2F2F2;
+  --color-kiarita-white: #FFFFFF;
+
+  /* Tonos Morados (Higo) */
+  --color-kiarita-purple-dark: #3C2664;
+  --color-kiarita-purple: #784DC7;
+  --color-kiarita-purple-light: #F1E9FF;
+
+  /* Tonos Verdes (Agro/Hojas) */
+  --color-kiarita-green-dark: #2C7331;
+  --color-kiarita-green: #249A18;
+}

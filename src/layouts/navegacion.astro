@@ -1,0 +1,135 @@
+---
+import { Menu, X } from "@lucide/astro";
+import { Image } from "astro:assets";
+import logoBlanco from "/src/assets/imagenes/titulo-blanco.png";
+import logoNegro from "/src/assets/imagenes/titulo-negro.png";
+---
+
+<header
+    id="navbar"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm text-white py-5 px-6 lg:px-[80px]"
+>
+    <div class="mx-auto flex justify-between items-center">
+        <a href="/" class="flex items-center gap-2 z-50">
+            <Image
+                src={logoBlanco}
+                alt="Logo Fundo La Kiarita"
+                class="h-7 w-auto transition-opacity duration-300"
+                id="logo-blanco"
+            />
+            <Image
+                src={logoNegro}
+                alt="Logo Fundo La Kiarita"
+                class="h-7 w-auto hidden transition-opacity duration-300"
+                id="logo-negro"
+            />
+        </a>
+
+        <nav class="hidden md:flex gap-16 font-inter font-medium text-sm">
+            <a href="/" class="desktop-link text-kiarita-gray-light hover:text-kiarita-white transition-colors">Inicio</a>
+            <a href="/empresa" class="desktop-link text-kiarita-gray-light hover:text-kiarita-white transition-colors">Empresa</a>
+            <a href="/producto" class="desktop-link text-kiarita-gray-light hover:text-kiarita-white transition-colors">Producto</a>
+            <a href="/alcance" class="desktop-link text-kiarita-gray-light hover:text-kiarita-white transition-colors">Alcance</a>
+            <a href="/contacto" class="desktop-link text-kiarita-gray-light hover:text-kiarita-white transition-colors">Contacto</a>
+        </nav>
+
+        <button
+            id="menu-btn"
+            class="md:hidden z-50 p-2 focus:outline-none hover:text-kiarita-green transition-colors"
+        >
+            <Menu id="icon-menu" class="w-7 h-7" />
+            <X id="icon-close" class="w-7 h-7 hidden" />
+        </button>
+    </div>
+</header>
+
+<div
+    id="mobile-menu"
+    class="fixed inset-0 w-full h-screen bg-kiarita-black text-white flex flex-col items-center justify-center gap-8 text-2xl font-commissioner font-bold transition-transform duration-300 translate-x-full md:hidden z-40"
+>
+    <a href="/" class="mobile-link hover:text-kiarita-green transition-colors">Inicio</a>
+    <a href="/empresa" class="mobile-link hover:text-kiarita-green transition-colors">Empresa</a>
+    <a href="/producto" class="mobile-link hover:text-kiarita-green transition-colors">Producto</a>
+    <a href="/alcance" class="mobile-link hover:text-kiarita-green transition-colors">Alcance</a>
+    <a href="/contacto" class="mobile-link hover:text-kiarita-green transition-colors">Contacto</a>
+</div>
+
+<script>
+    // Referencias del DOM
+    const navbar = document.getElementById("navbar") as HTMLElement;
+    const menuBtn = document.getElementById("menu-btn") as HTMLButtonElement;
+    const mobileMenu = document.getElementById("mobile-menu") as HTMLElement;
+    const iconMenu = document.getElementById("icon-menu") as HTMLElement;
+    const iconClose = document.getElementById("icon-close") as HTMLElement;
+    
+    // Referencias para el cambio de color
+    const logoBlanco = document.getElementById("logo-blanco") as HTMLImageElement;
+    const logoNegro = document.getElementById("logo-negro") as HTMLImageElement;
+    const desktopLinks = document.querySelectorAll(".desktop-link");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    let isMenuOpen = false;
+
+    const updateNavbarStyle = () => {
+        if (!navbar) return; 
+
+        if (isMenuOpen) {
+            // MENÚ ABIERTO (Forzar fondo oscuro y logo blanco)
+            navbar.className = "fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-kiarita-black text-white py-5 px-6 lg:px-[80px]";
+            logoBlanco.classList.remove("hidden");
+            logoNegro.classList.add("hidden");
+        } else {
+            if (window.scrollY > 50) {
+                // SCROLLEADO (Fondo blanco, logo negro, textos oscuros)
+                navbar.className = "fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-kiarita-white shadow-md text-kiarita-black py-3 px-6 lg:px-[80px]";
+                
+                logoBlanco.classList.add("hidden");
+                logoNegro.classList.remove("hidden");
+
+                desktopLinks.forEach((link) => {
+                    link.classList.remove("text-kiarita-gray-light", "hover:text-kiarita-white");
+                    link.classList.add("text-kiarita-gray-dark", "hover:text-kiarita-green");
+                });
+            } else {
+                // ARRIBA DEL TODO (Fondo oscuro, logo blanco, textos claros)
+                navbar.className = "fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm text-white py-5 px-6 lg:px-[80px]";
+                
+                logoBlanco.classList.remove("hidden");
+                logoNegro.classList.add("hidden");
+
+                desktopLinks.forEach((link) => {
+                    link.classList.remove("text-kiarita-gray-dark", "hover:text-kiarita-green");
+                    link.classList.add("text-kiarita-gray-light", "hover:text-kiarita-white");
+                });
+            }
+        }
+    };
+
+    // Eventos
+    window.addEventListener("scroll", updateNavbarStyle);
+
+    const toggleMenu = () => {
+        isMenuOpen = !isMenuOpen;
+
+        mobileMenu.classList.toggle("translate-x-full");
+        iconMenu.classList.toggle("hidden");
+        iconClose.classList.toggle("hidden");
+
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        updateNavbarStyle();
+    };
+
+    menuBtn.addEventListener("click", toggleMenu);
+
+    mobileLinks.forEach((link) => {
+        link.addEventListener("click", toggleMenu);
+    });
+
+    // Ejecutar al cargar la página
+    updateNavbarStyle();
+</script>

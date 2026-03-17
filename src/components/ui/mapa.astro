@@ -1,0 +1,120 @@
+---
+// En el Frontmatter NO importamos la librería de JS
+// Solo podrías importar datos o tipos si fuera necesario.
+---
+
+<div class="w-full h-full">
+    <div id="map"></div>
+</div>
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css"
+/>
+
+<script>
+    import jsVectorMap from "jsvectormap";
+    import "jsvectormap/dist/maps/world.js";
+
+    const mapElement = document.getElementById("map");
+
+    if (mapElement) {
+        new jsVectorMap({
+            selector: "#map",
+            map: "world",
+            backgroundColor: "transparent",
+            zoomOnScroll: false,
+
+            // Le indicamos al mapa qué países deben tomar el color 'selected'
+            selectedRegions: ["PE", "US", "ES", "FR", "GB", "CN", "JP"],
+
+            // Estilo base de los países
+            regionStyle: {
+                initial: {
+                    fill: "#CBCBCB", 
+                    fillOpacity: 1,
+                    stroke: "#222222",
+                    strokeWidth: 0.5,
+                },
+                hover: {
+                    fillOpacity: 1, // Mantiene la opacidad intacta
+                    // Al no definir 'fill', hereda el color que ya tiene y no cambia
+                },
+                selected: {
+                    fill: "#249A18", // El gris oscuro que pediste
+                },
+                selectedHover: {
+                    fill: "#4D4D4D", // Evita que los países marcados cambien al pasar el cursor
+                }
+            },
+
+            // 1. Definimos los puntos (Latitud, Longitud)
+            markers: [
+                { name: "Nuevo Chimbote, Perú", coords: [-9.1197, -78.5306] }, // Origen
+                { name: "Estados Unidos", coords: [37.0902, -95.7129] },
+                { name: "España", coords: [40.4637, -3.7492] },
+                { name: "Francia", coords: [46.2276, 2.2137] },
+                { name: "Reino Unido", coords: [55.3781, -3.436] },
+                { name: "China", coords: [35.8617, 104.1954] },
+                { name: "Japón", coords: [36.2048, 138.2529] },
+            ],
+
+            // 2. Estilo de los puntos (Pines)
+            markerStyle: {
+                initial: {
+                    fill: "#FFFFFF",
+                    r: 6, 
+                    stroke: "#8F8F8F", 
+                    strokeWidth: 2,
+                },
+                hover: {
+                    fill: "#f1d103",
+                    stroke: "#8F8F8F",
+                    r: 10,
+                },
+            },
+
+            // 3. Definimos las conexiones (De -> A)
+            lines: [
+                { from: "Nuevo Chimbote, Perú", to: "Estados Unidos" },
+                { from: "Nuevo Chimbote, Perú", to: "España" },
+                { from: "Nuevo Chimbote, Perú", to: "Francia" },
+                { from: "Nuevo Chimbote, Perú", to: "Reino Unido" },
+                { from: "Nuevo Chimbote, Perú", to: "China" },
+                { from: "Nuevo Chimbote, Perú", to: "Japón" },
+            ],
+
+            // 4. Estilo de las líneas
+            lineStyle: {
+                stroke: "#FFFFFF", 
+                strokeWidth: 1.5,
+                strokeOpacity: 1,
+                strokeDasharray: "6 3 6", 
+                fill: "none",
+                animation: true, 
+            },
+
+            // Tooltip para cuando pasen el mouse sobre un punto
+            onMarkerTooltipShow(event: any, tooltip: any, index: any) {
+                tooltip.text(tooltip.text());
+            },
+            
+            // Tooltip para las regiones (países)
+            onRegionTooltipShow(event: any, tooltip: any, code: any) {
+                // Esto asegura que solo muestre el nombre del país por defecto
+                tooltip.text(tooltip.text());
+            }
+        });
+    }
+</script>
+
+<style>
+    /* Ajustes para que el tooltip combine con tu diseño */
+    :global(.jvm-tooltip) {
+        background-color: #222222 !important; /* kiarita-black */
+        font-family: "Inter", sans-serif !important;
+        border-radius: 8px !important;
+        padding: 8px 12px !important;
+        border: none !important;
+    }
+</style>

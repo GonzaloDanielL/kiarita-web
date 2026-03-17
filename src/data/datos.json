@@ -1,0 +1,369 @@
+{
+    "global": {
+        "empresa": {
+            "nombre": "Fundo La Kiarita",
+            "descripcion_corta": "En Fundo La Kiarita, somos una agroexportadora líder en la región dedicada a la producción de higos de clase mundial. Nuestro compromiso se basa en la unión de recursos tecnológicos de vanguardia y un equipo humano altamente calificado, garantizando procesos de innovación orientados a un crecimiento sostenible y productos que cumplen con los más altos estándares de calidad internacional.",
+            "descripcion_larga": [
+                "En Fundo La Kiarita, nos consolidamos como la empresa líder de nuestra región en la producción y exportación de productos frutícolas y vegetales. Nuestra trayectoria se define por la búsqueda incansable de la excelencia, ofreciendo a nuestros clientes globales servicios y productos que cumplen estrictamente con los más altos estándares de calidad internacional.",
+                "Nuestra operación se sustenta en un equipo de trabajo altamente calificado y proactivo, el cual constituye el corazón de nuestra eficiente organización. Creemos firmemente que el talento humano es la clave para mantener la precisión en cada etapa del proceso, desde el cultivo hasta la entrega final. Para respaldar esta labor, empleamos recursos científicos y tecnológicos de vanguardia que permiten una innovación constante en nuestros campos y procesos de empaque.",
+                "Miramos hacia el futuro con la convicción de un crecimiento permanente y sostenido. Esta visión nos impulsa a seguir transformando el sector agroexportador, garantizando que cada higo que sale de nuestras tierras lleve consigo el sello de la tecnología aplicada al agro y la frescura que solo un líder regional puede ofrecer."
+            ],
+            "mision": "Producir y exportar productos frutícolas y vegetales de calidad, sustentados por un equipo de trabajo altamente calificado y proactivo, con una eficiente organización, empleando los recursos científicos y tecnológicos que permitan la innovación orientada al crecimiento permanente y sostenido",
+            "vision": "Ser la empresa líder de la región en la producción y exportación de frutas y vegetales, ofreciendo a nuestros clientes, servicios y productos con altos estándares de calidad.",
+            "valores": [
+                {
+                    "titulo": "Calidad",
+                    "texto": "Compromiso con la producción y exportación de higos bajo estándares internacionales."
+                },
+                {
+                    "titulo": "Responsabilidad",
+                    "texto": "Cumplimiento de compromisos comerciales con clientes nacionales e internacionales."
+                },
+                {
+                    "titulo": "Innovación",
+                    "texto": "Mejora continua en procesos productivos y herramientas tecnológicas."
+                },
+                {
+                    "titulo": "Trabajo en equipo",
+                    "texto": "Colaboración y compromiso del personal para lograr los objetivos empresariales."
+                },
+                {
+                    "titulo": "Transparencia",
+                    "texto": "Actuación ética que genera confianza en el mercado internacional."
+                },
+                {
+                    "titulo": "Sostenibilidad",
+                    "texto": "Uso responsable de los recursos naturales y respeto por el medio ambiente."
+                }
+            ],
+            "historia": [
+                {
+                    "fecha": "2016 - El Origen",
+                    "texto": "Nace Fundo La Kiarita en las tierras de Ancash, con el firme propósito de producir higos de calidad superior destinados al mercado internacional."
+                },
+                {
+                    "fecha": "2018 - Calidad que Define",
+                    "texto": "Logramos nuestra primera cosecha a gran escala, estableciendo los estándares de selección que nos permiten ofrecer productos con altos niveles de frescura y sabor."
+                },
+                {
+                    "fecha": "2020 - Transformación Tecnológica",
+                    "texto": "Cumpliendo con nuestra misión, integramos recursos científicos y tecnológicos de vanguardia para optimizar el rendimiento de nuestros cultivos de manera eficiente."
+                },
+                {
+                    "fecha": "2022 - Cruzando Fronteras",
+                    "texto": "Iniciamos nuestra expansión hacia mercados globales, logrando exportar con éxito a destinos estratégicos como España, Francia y Estados Unidos."
+                },
+                {
+                    "fecha": "2024 - Crecimiento Sostenible",
+                    "texto": "Consolidamos un equipo de trabajo altamente calificado y proactivo, garantizando una organización orientada al crecimiento permanente y la sostenibilidad agrícola."
+                },
+                {
+                    "fecha": "2026 - Liderazgo Regional y Digital",
+                    "texto": "Nos posicionamos como la empresa líder de la región, impulsando nuestra presencia digital para fortalecer la confianza en cada uno de nuestros contratos internacionales."
+                }
+            ]
+        },
+        "estadisticas": {
+            "anios": "+11",
+            "trabajadores": "+80",
+            "toneladas_exportadas": "+10k",
+            "paises": "+7",
+            "hectareas": "+9k"
+        },
+        "certificaciones": [
+            {
+                "nombre": "GLOBALG.A.P. IFA",
+                "descripcion": "Es la norma internacional líder para las Buenas Prácticas Agrícolas (BPA). Garantiza que nuestros higos son producidos bajo estrictos controles de inocuidad alimentaria, sostenibilidad ambiental y bienestar de nuestros trabajadores.",
+                "imagen": "/imagenes/globalgap.png"
+            },
+            {
+                "nombre": "GRASP",
+                "descripcion": "Este módulo se enfoca específicamente en las prácticas sociales. Avala que cumplimos con la legislación laboral nacional e internacional, demostrando nuestro compromiso ético con la salud, seguridad y derechos de todo nuestro equipo humano.",
+                "imagen": "/imagenes/GRASP.png"
+            },
+            {
+                "nombre": "FSMA (FDA FOOD SAFETY)",
+                "descripcion": "Es la norma de cumplimiento obligatorio para exportar a Estados Unidos. Certifica que implementamos controles preventivos rigurosos para evitar cualquier tipo de contaminación, asegurando un producto seguro para el consumidor norteamericano.",
+                "imagen": "/imagenes/FSMA.png"
+            },
+            {
+                "nombre": "LEAF MARQUE",
+                "descripcion": "Un sistema global que reconoce a las empresas que producen de manera ambientalmente responsable. Complementa nuestras prácticas de sostenibilidad, asegurando un manejo integral de la granja que protege y mejora el entorno natural de Nuevo Chimbote.",
+                "imagen": "/imagenes/LEAF.png"
+            },
+            {
+                "nombre": "TESCO NURTURE",
+                "descripcion": "Certificación exigida para proveedores de la cadena británica Tesco. Garantiza que nuestros procesos de manipulación y producción de higos son sostenibles y respetuosos con el medio ambiente, cumpliendo con los estándares de calidad de los minoristas más grandes del mundo.",
+                "imagen": "/imagenes/NURTURE.png"
+            }
+        ],
+        "contacto": {
+            "direccion": "Domicilio fiscal: Carretera Tambogrande - Las Lomas Km 1077 + 179m. Piura - Perú",
+            "telefonos": [
+                "(+51) 73-313709",
+                "(+51) 73-310409"
+            ],
+            "redes_sociales": [
+                "",
+                ""
+            ]
+        },
+        "footer": {
+            "descripcion": "Higos de exportación con calidad certificada desde Ica, Perú para el mundo.",
+            "enlaces": {
+                "Inicio": [],
+                "Empresa": [
+                    "Nuestra Historia",
+                    "Misión y visión",
+                    "Valores",
+                    "Compromiso social"
+                ],
+                "Nuestro higo": [
+                    "Sobre el higo",
+                    "Proceso de cosecha",
+                    "Beneficios",
+                    "¿Cómo conservar?",
+                    "Ideas de preparacion"
+                ],
+                "Garantía": [
+                    "Alcance",
+                    "Certificados",
+                    "Socios"
+                ],
+                "Contacto": []
+            },
+            "copyright": "© Kiarita. All Rights Reserved.",
+            "legales": "Términos y condiciones"
+        }
+    },
+    "paginas": {
+        "inicio": {
+            "hero": {
+                "titulo": "DE NUESTRA TIERRA AL MUNDO",
+                "subtitulo": "Innovación y frescura de Nuevo Chimbote para los mercados más exigentes del mundo",
+                "video": "/videos/hero-inicio.webm"
+            },
+            "liderazgo": {
+                "titulo": "LIDERAZGO Y CALIDAD DESDE EL CORAZÓN DE NUESTRA TIERRA",
+                "imagenes": [
+                    "/imagenes/inicio-about-1.png",
+                    "/imagenes/inicio-about-3.jpg",
+                    "/imagenes/inicio-about-2.jpg"
+                ],
+                "cta_texto": "Leer mas sobre nosotros ->",
+                "cta_enlace": "/empresa"
+            },
+            "producto": {
+                "titulo": "NUESTRO PRODUCTO: EXCELENCIA EN CADA COSECHA.",
+                "descripcion": "Producimos y exportamos higos de la más alta calidad, cultivados bajo procesos de innovación tecnológica que aseguran frescura y sabor en cada destino internacional. Nuestro enfoque en el crecimiento sostenible nos permite ofrecer un producto premium que cumple con los estándares más exigentes del mercado frutícola global.",
+                "imagen": "/imagenes/inicio-producto.jpg",
+                "cta_texto": "Conocer mas sobre el Higo ->",
+                "cta_enlace": "/producto"
+            },
+            "garantia": {
+                "titulo": "NUESTRA GARANTÍA: TRAZABILIDAD Y CALIDAD CERTIFICADA",
+                "descripcion": "En Fundo La Kiarita, entendemos que la confianza es la base de cada contrato internacional. Por ello, implementamos rigurosos controles de calidad y tecnología avanzada en cada etapa de producción. Contamos con las certificaciones exigidas por los mercados globales, asegurando que cada envío de higos sea un ejemplo de frescura, seguridad alimentaria y cumplimiento de los más altos estándares operativos.",
+                "cta_texto": "Saber mas sobre nuestra trazabilidad",
+                "cta_enlace": "/alcance"
+            },
+            "contacto": {
+                "titulo": "CONTACTO",
+                "formulario": {
+                    "campos": [
+                        "Nombre",
+                        "Correo electrónico",
+                        "Mensaje"
+                    ],
+                    "boton": "Enviar",
+                    "nota": "Garantizamos la total privacidad de sus datos; la información proporcionada será de uso exclusivo de Fundo La Kiarita."
+                }
+            }
+        },
+        "empresa": {
+            "hero": {
+                "titulo": "SOBRE NOSOTROS",
+                "imagen_fondo": ""
+            },
+            "mision_vision": {
+                "titulo_mision": "MISIÓN",
+                "titulo_vision": "VISIÓN",
+                "imagen_fondo": ""
+            },
+            "valores": {
+                "titulo": "VALORES"
+            },
+            "historia": {
+                "titulo": "NUESTRA HISTORIA",
+                "imagenes": [
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "talento_local": {
+                "titulo": "SEMBRANDO CONOCIMIENTO: DESARROLLO DEL TALENTO LOCAL",
+                "texto": "Fomentamos el crecimiento de nuestra comunidad en Ancash a través de programas de capacitación técnica en agroexportación. Nuestro objetivo es consolidar un equipo de trabajo altamente calificado y proactivo que lidere la innovación en el sector agrícola de nuestra región.",
+                "imagen": ""
+            },
+            "compromiso_ambiental": {
+                "titulo": "COMPROMISO AMBIENTAL: GESTIÓN SOSTENIBLE DEL AGUA.",
+                "texto": "Empleamos recursos tecnológicos avanzados para optimizar el uso del agua y proteger la salud de nuestros suelos. Esta visión de crecimiento permanente y sostenido nos permite garantizar una producción que respeta el equilibrio natural y asegura el bienestar de las futuras generaciones.",
+                "imagen": ""
+            }
+        },
+        "alcance": {
+            "hero": {
+                "titulo": "PRESENCIA Y RESPALDO",
+                "subtitulo": "Calidad certificada y alcance global desde Nuevo Chimbote",
+                "imagen_fondo": ""
+            },
+            "presencia_global": {
+                "titulo": "PRESENCIA GLOBAL: CALIDAD SIN FRONTERAS",
+                "texto": "Desde nuestro fundo en Nuevo Chimbote, trazamos rutas seguras para llevar el mejor higo peruano a los mercados más exigentes de Europa, Asia y América. Nuestra sólida red logística y el uso de tecnología de vanguardia nos permiten cumplir con los estándares internacionales más rigurosos, garantizando que cada fruto llegue con la frescura y excelencia que define a Fundo La Kiarita.",
+                "imagen_mapa": ""
+            },
+            "calidad_avalada": {
+                "titulo": "CALIDAD AVALADA"
+            }
+        },
+        "producto": {
+            "hero": {
+                "titulo": "EL FRUTO DE NUESTRA TIERRA",
+                "subtitulo": "Calidad internacional que nace en el corazón de Ancash para el mundo",
+                "imagen_fondo": ""
+            },
+            "detalle_higo": {
+                "titulo": "EL HIGO DE KIARITA: EXCELENCIA EN CADA FRUTO",
+                "parrafos": [
+                    "Nuestro higo es el resultado de un equilibrio perfecto entre la riqueza de la tierra en Nuevo Chimbote y la innovación técnica que aplicamos en cada etapa de su desarrollo. Seleccionamos cada fruto bajo los más estrictos estándares internacionales para asegurar que su frescura y dulzor lleguen intactos a los mercados de exportación en Europa, Asia y América.",
+                    "En Fundo La Kiarita, combinamos la experiencia de nuestro equipo altamente calificado con recursos científicos avanzados para garantizar un producto premium que destaca por su textura, tamaño y calidad superior. Todo esto bajo un modelo de crecimiento sostenible que respeta el entorno natural de Ancash y fortalece nuestra posición como líderes regionales en el sector agroexportador."
+                ],
+                "subtitulo_cosecha": "Periodos de cosecha",
+                "meses": [
+                    "ene",
+                    "feb",
+                    "mar",
+                    "abr",
+                    "may",
+                    "jun",
+                    "jul",
+                    "ago",
+                    "set",
+                    "oct",
+                    "nov",
+                    "dic"
+                ],
+                "imagenes": [
+                    "",
+                    ""
+                ]
+            },
+            "ruta_calidad": {
+                "titulo": "NUESTRA RUTA DE CALIDAD\nTRAZABILIDAD DE PUNTA A PUNTA",
+                "etapas": [
+                    {
+                        "etiqueta": "Etapa 1",
+                        "titulo": "CULTIVO CON BASE CIENTÍFICA",
+                        "texto": "Ser la empresa líder de la región en la producción y exportación de frutas y vegetales, ofreciendo a nuestros clientes, servicios y productos con altos estándares de calidad.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Etapa 2",
+                        "titulo": "MONITOREO ESPECIALIZADO",
+                        "texto": "Nuestro equipo humano altamente calificado supervisa diariamente el crecimiento, aplicando técnicas de innovación para un desarrollo sano y sostenible.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Etapa 2",
+                        "titulo": "COSECHA SELECTIVA MANUAL",
+                        "texto": "Realizamos la recolección en el punto exacto de madurez, asegurando que cada higo mantenga la frescura y el dulzor característico de nuestra región.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Etapa 4",
+                        "titulo": "CONTROL DE CALIDAD",
+                        "texto": "Cada fruto pasa por un riguroso proceso de selección y limpieza bajo estándares internacionales para garantizar la seguridad alimentaria.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Etapa 5",
+                        "titulo": "EMPAQUE DE ALTA PRECISIÓN",
+                        "texto": "Utilizamos empaques diseñados para proteger la integridad del producto, manteniendo su calidad premium durante los trayectos de larga distancia.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Etapa 6",
+                        "titulo": "DISTRIBUCIÓN GLOBAL",
+                        "texto": "Gestionamos una logística eficiente para conectar nuestro fundo con mercados estratégicos en Europa, Asia y América, cumpliendo cada contrato con puntualidad.",
+                        "imagen": ""
+                    }
+                ]
+            },
+            "guia_cuidado": {
+                "titulo": "GUÍA DE CUIDADO\nMAXIMIZA LA FRESCURA DE TU HIGO KIARITA",
+                "pasos": [
+                    {
+                        "etiqueta": "Paso 1",
+                        "titulo": "INSPECCIÓN Y REPOSO SECO",
+                        "texto": "Al recibir tus higos de Nuevo Chimbote, retíralos del empaque original y colócalos en un plato o bandeja en una sola capa. Evita lavarlos hasta el momento exacto en que vayas a consumirlos, ya que la humedad acelera su maduración.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Paso 2",
+                        "titulo": "REFRIGERACIÓN ESTRATÉGICA",
+                        "texto": "Para mantener esa frescura premium por más tiempo, guárdalos en la parte menos fría del refrigerador (cajón de frutas). Te recomendamos cubrirlos con una servilleta de papel absorbente para proteger su delicada piel de la condensación.",
+                        "imagen": ""
+                    },
+                    {
+                        "etiqueta": "Paso 3",
+                        "titulo": "CONSERVACIÓN A LARGO PLAZO",
+                        "texto": "Si no planeas consumirlos en los próximos 2 o 3 días, puedes congelarlos. Colócalos enteros o cortados en un recipiente hermético; así mantendrán sus propiedades y sabor para ser usados en batidos, postres o mermeladas artesanales.",
+                        "imagen": ""
+                    }
+                ]
+            },
+            "sugerencias": {
+                "titulo": "SUGERENCIAS DE DEGUSTACIÓN",
+                "items": [
+                    {
+                        "titulo": "ENSALADA GOURMET DE HIGOS ->",
+                        "texto": "El toque elegante de tus cenas",
+                        "imagen": ""
+                    },
+                    {
+                        "titulo": "BRUSCHETTAS CON QUESO Y HIGO ->",
+                        "texto": "Un contraste de sabores premium",
+                        "imagen": ""
+                    },
+                    {
+                        "titulo": "ENERGÉTICO DE HIGO ->",
+                        "texto": "Potencia natural para tu día",
+                        "imagen": ""
+                    }
+                ]
+            },
+            "faq": {
+                "titulo": "HIGO: DATOS Y DUDAS",
+                "preguntas": [
+                    {
+                        "pregunta": "¿Es el higo realmente una fruta?",
+                        "respuesta": "Técnicamente, el higo no es una fruta, sino una infrutescencia; es decir, un conjunto de flores invertidas que crecen dentro de una vaina carnosa. En Fundo La Kiarita, supervisamos este proceso botánico en Nuevo Chimbote con tecnología de precisión, asegurando que cada fruto desarrolle el dulzor y la textura premium que nos caracteriza como líderes regionales."
+                    },
+                    {
+                        "pregunta": "¿En qué se diferencia el higo de Nuevo Chimbote?",
+                        "respuesta": ""
+                    },
+                    {
+                        "pregunta": "¿Cuál es el valor nutricional de un higo Kiarita?",
+                        "respuesta": ""
+                    },
+                    {
+                        "pregunta": "¿Por qué el higo es considerado un \"superalimento\" hoy?",
+                        "respuesta": ""
+                    }
+                ]
+            }
+        }
+    }
+}

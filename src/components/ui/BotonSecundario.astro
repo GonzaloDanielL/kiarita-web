@@ -1,0 +1,15 @@
+---
+interface Props {
+    texto: string;
+    tipo?: "submit" | "button";
+}
+
+const { texto, tipo = "submit" } = Astro.props;
+---
+
+<button
+    type={tipo}
+    class="w-full bg-kiarita-green text-kiarita-white font-commissioner font-bold text-lg py-2 rounded-full hover:bg-kiarita-green-dark transition-colors"
+>
+    {texto}
+</button>

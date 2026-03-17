@@ -1,0 +1,11 @@
+---
+interface Props {
+    alineacion?: string;
+}
+
+const { alineacion = "flex-col" } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-6 mb-10">
+    <slot />
+</div>

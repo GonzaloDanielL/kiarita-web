@@ -1,0 +1,26 @@
+---
+interface Props {
+    id: string;
+    label: string;
+    rows?: number;
+    required?: boolean;
+}
+
+const { id, label, rows = 4, required = true } = Astro.props;
+---
+
+<div>
+    <label 
+        for={id} 
+        class="block font-commissioner font-bold text-lg text-kiarita-black mb-2"
+    >
+        {label}
+    </label>
+    <textarea
+        id={id}
+        name={id}
+        rows={rows}
+        class="w-full rounded-2xl resize-none border border-kiarita-gray bg-kiarita-gray-lighter px-5 py-2 font-inter text-kiarita-black focus:outline-none focus:ring-2 focus:ring-kiarita-green transition-shadow"
+        required={required}
+    ></textarea>
+</div>

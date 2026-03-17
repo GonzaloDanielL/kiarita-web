@@ -1,0 +1,26 @@
+---
+interface Props {
+    id: string;
+    label: string;
+    type?: "text" | "email" | "tel"; // Tipos más comunes
+    required?: boolean;
+}
+
+const { id, label, type = "text", required = true } = Astro.props;
+---
+
+<div>
+    <label 
+        for={id} 
+        class="block font-commissioner font-bold text-lg text-kiarita-black mb-2"
+    >
+        {label}
+    </label>
+    <input
+        id={id}
+        name={id}
+        type={type}
+        class="w-full rounded-full border border-kiarita-gray bg-kiarita-gray-lighter px-5 py-2 font-inter text-kiarita-black focus:outline-none focus:ring-2 focus:ring-kiarita-green transition-shadow"
+        required={required}
+    />
+</div>

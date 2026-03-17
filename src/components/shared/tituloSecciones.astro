@@ -1,0 +1,28 @@
+---
+interface Props {
+    title: string;
+    descripcion: string;
+    colorTitulo?: string; // Color de titulo
+    colorTexto?: string;   // Color de descripcion
+}
+
+const { 
+    title, 
+    descripcion, 
+    colorTitulo = "text-kiarita-green", 
+    colorTexto = "text-kiarita-gray-dark" 
+} = Astro.props;
+---
+
+<div class="flex flex-col">
+    <h2
+        class={`font-commissioner font-extrabold text-4xl lg:text-4xl ${colorTitulo} uppercase mb-6 leading-tight`}
+    >
+        {title}
+    </h2>
+    <p
+        class={`mb-10 ${colorTexto} leading-relaxed text-base font-medium`}
+    >
+        {descripcion}
+    </p>
+</div>

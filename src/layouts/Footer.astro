@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import logoBlanco from "/src/assets/imagenes/titulo-blanco.png";
+
+// Importamos los datos globales
+import data from "../data/datos.json";
+
+const { descripcion, enlaces, copyright, legales } = data.global.footer;
+const { direccion, telefonos } = data.global.contacto;
+---
+
+<footer class="bg-kiarita-black text-kiarita-gray-light py-24 xl:py-32 px-6 lg:px-[80px]">
+    <div class="max-w-7xl mx-auto">
+        
+        <div class="flex flex-col lg:flex-row justify-between gap-16 mb-16">
+            
+            <div class="w-full lg:w-1/3 flex flex-col gap-6">
+                <a href="/">
+                    <Image 
+                        src={logoBlanco} 
+                        alt="Logo Fundo La Kiarita" 
+                        class="h-8 w-auto mb-2"
+                    />
+                </a>
+                <p class="font-inter leading-relaxed pr-4">
+                    {descripcion}
+                </p>
+                <div class="font-inter space-y-4 mt-2">
+                    <p>{direccion}</p>
+                    <p>{telefonos[0]} / {telefonos[1]}</p>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-2/3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                {Object.entries(enlaces).map(([titulo, links]) => (
+                    <div>
+                        <h4 class="font-commissioner font-bold text-white mb-6">
+                            {titulo}
+                        </h4>
+                        
+                        {/* Solo renderizamos la lista (ul) si hay sub-enlaces */}
+                        {links.length > 0 && (
+                            <ul class="flex flex-col gap-4 font-inter text-sm">
+                                {links.map((link) => (
+                                    <li>
+                                        <a href="#" class="hover:text-kiarita-white transition-colors">
+                                            {link}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                ))}
+            </div>
+            
+        </div>
+
+        <div class="border-t border-[#4D4D4D] pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-inter text-sm text-kiarita-gray">
+            <p>{copyright}</p>
+            <a href="#" class="hover:text-kiarita-white transition-colors">
+                {legales}
+            </a>
+        </div>
+
+    </div>
+</footer>

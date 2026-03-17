@@ -1,0 +1,25 @@
+---
+interface Props {
+    numero: string;
+    texto: string;
+    tipo?: string;
+}
+
+const { numero, texto, tipo = "tipo-1" } = Astro.props;
+let tema = "";
+
+if (tipo === "tipo-1") {
+    tema = "border border-kiarita-green";
+} else if (tipo === "tipo-2") {
+    tema = "bg-kiarita-white";
+}
+---
+
+<div class={`${tema} rounded-xl p-6 text-center w-40`}>
+    <span class="block font-commissioner font-bold text-4xl text-kiarita-green"
+        >{numero}</span
+    >
+    <span class="text-sm text-kiarita-gray-dark font-medium mt-1 block"
+        >{texto}</span
+    >
+</div>

@@ -1,0 +1,18 @@
+---
+interface Props {
+    tipo: string;
+    height?: string;
+}
+
+const { tipo, height } = Astro.props;
+let estilo = "";
+if (tipo === "derecha") {
+    estilo = "pr-6 lg:pr-20";
+
+} else if (tipo === "izquierda") {
+    estilo = "pl-6 lg:pl-20";
+}
+---
+<div class={`py-24 xl:py-32 ${estilo} ${height}`}>
+    <slot />
+</div>

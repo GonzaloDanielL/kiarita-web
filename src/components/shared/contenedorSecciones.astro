@@ -1,0 +1,19 @@
+---
+interface Props {
+    color: string; // Color de fondo
+    tipo?: string; // para secciones que no tienen 2 separaciones 
+}
+
+const { color, tipo } = Astro.props;
+
+let estilo = "mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center";
+if (tipo === "limpio") {
+    estilo = "";
+}
+---
+
+<section
+    class={`${estilo} ${color}`}
+>
+    <slot />
+</section>
