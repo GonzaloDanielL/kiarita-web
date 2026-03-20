@@ -1,0 +1,36 @@
+---
+interface Props {
+    title: string;
+    descripcion?: string;
+    colorTitulo?: string; // Color de titulo
+    colorTexto?: string;   // Color de descripcion
+    posicionTitulo?: string; // Posición de titulo
+    tamañoTitulo?: string; // Tamaño de titulo
+}
+
+const { 
+    title, 
+    tamañoTitulo = "text-3xl lg:text-4xl",
+    descripcion = "", 
+    colorTitulo = "text-kiarita-green", 
+    colorTexto = "text-kiarita-gray-dark",
+    posicionTitulo = "text-left",
+} = Astro.props;
+---
+
+<div class="flex flex-col w-full">
+    <h2
+        class={`font-commissioner font-extrabold ${tamañoTitulo} ${colorTitulo} uppercase mb-6 leading-tight w-full ${posicionTitulo}`}
+    >
+        {title}
+    </h2>
+    {
+        descripcion.length > 100 && (
+            <p
+                class={`mb-10 ${colorTexto} leading-relaxed text-base font-medium`}
+            >
+                {descripcion}
+            </p>
+        )
+    }
+</div>

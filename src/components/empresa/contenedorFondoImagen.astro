@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    imagen: string;
+}
+
+const { imagen } = Astro.props;
+
+// funcion para obtener la ruta de la imagen
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const getImagePath = (jsonPath: string) => {
+    const fullPath = `/src/assets${jsonPath}`;
+    if (!localImages[fullPath])
+        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
+    return localImages[fullPath]();
+};
+---
+
+<section class="relative w-full overflow-hidden">
+    <Image
+        src={getImagePath(imagen)}
+        alt="Fondo Misión y Visión"
+        class="absolute inset-0 w-full h-full object-cover z-0 blur-xs scale-105"
+    />
+
+    <div class="absolute inset-0 bg-kiarita-black/70 z-10"></div>
+
+    <slot />
+</section>

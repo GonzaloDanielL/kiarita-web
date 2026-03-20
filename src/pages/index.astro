@@ -4,7 +4,7 @@ import "../styles/global.css";
 import { Image } from "astro:assets";
 import data from "../data/datos.json";
 
-import TituloSecciones from "../components/shared/tituloSecciones.astro";
+import ContenidoSecciones from "../components/shared/contenidoSecciones.astro";
 import ContenedorSecciones from "../components/shared/contenedorSecciones.astro";
 import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
 import InputNormal from "../components/ui/InputNormal.astro";
@@ -15,6 +15,7 @@ import ContenedorDatos from "../components/shared/contenedorDatos.astro";
 import DatosCuadro from "../components/shared/datosCuadro.astro";
 import LinkPagina from "../components/shared/linkPagina.astro";
 import PeriodosFechas from "../components/shared/periodosFechas.astro";
+import HeroPagina from "../components/shared/HeroPagina.astro";
 import Mapa from "../components/ui/mapa.astro";
 
 import imagenProducto from "/src/assets/imagenes/inicio-producto.jpg";
@@ -64,36 +65,7 @@ const getImagePath = (jsonPath: string) => {
 
 <Layout>
     <!-- Hero inicio -->
-    <section
-        class="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center overflow-hidden"
-    >
-        <video
-            autoplay
-            loop
-            muted
-            playsinline
-            class="absolute inset-0 w-full h-full object-cover z-0"
-        >
-            <source src={video} type="video/webm" />
-            <source src={video.replace(".webm", ".mp4")} type="video/mp4" />
-        </video>
-
-        <div class="absolute inset-0 bg-kiarita-black/60 z-10"></div>
-
-        <div class="relative z-20 px-6 max-w-4xl mx-auto mt-16 md:mt-0">
-            <h1
-                class="font-commissioner font-extrabold text-5xl md:text-6xl text-kiarita-white mb-6 uppercase leading-tight drop-shadow-lg"
-            >
-                {titulo}
-            </h1>
-
-            <p
-                class="font-inter text-lg md:text-lg text-kiarita-gray-lighter drop-shadow-md"
-            >
-                {subtitulo}
-            </p>
-        </div>
-    </section>
+    <HeroPagina titulo={titulo} subtitulo={subtitulo} video={video} />
 
     <!-- About inicio -->
     <ContenedorSecciones color="bg-kiarita-white">
@@ -123,8 +95,8 @@ const getImagePath = (jsonPath: string) => {
             </div>
         </SubContenedorSecciones>
 
-        <SubContenedorSecciones tipo="derecha">
-            <TituloSecciones
+        <SubContenedorSecciones>
+            <ContenidoSecciones
                 title={tituloLiderazgo}
                 descripcion={descripcion_corta}
             />
@@ -140,8 +112,8 @@ const getImagePath = (jsonPath: string) => {
 
     <!-- Producto inicio -->
     <ContenedorSecciones color="bg-kiarita-purple-light">
-        <SubContenedorSecciones tipo="izquierda">
-            <TituloSecciones
+        <SubContenedorSecciones>
+            <ContenidoSecciones
                 title={tituloProducto}
                 descripcion={descripcion}
                 colorTitulo="text-kiarita-purple"
@@ -154,7 +126,7 @@ const getImagePath = (jsonPath: string) => {
             />
         </SubContenedorSecciones>
 
-        <div class="w-full h-full">
+        <div class="w-full h-full bg-amber-400">
             <Image
                 src={imagenProducto}
                 alt="Higo Fundo La Kiarita"
@@ -170,8 +142,8 @@ const getImagePath = (jsonPath: string) => {
         <SubContenedorSecciones tipo="izquierda" height="h-full">
             <Mapa />
         </SubContenedorSecciones>
-        <SubContenedorSecciones tipo="derecha">
-            <TituloSecciones
+        <SubContenedorSecciones>
+            <ContenidoSecciones
                 title={tituloGarantia}
                 descripcion={descripcion_garantia}
                 colorTitulo="text-kiarita-white"

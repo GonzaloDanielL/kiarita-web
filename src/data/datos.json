@@ -181,35 +181,80 @@
         },
         "empresa": {
             "hero": {
-                "titulo": "SOBRE NOSOTROS",
-                "imagen_fondo": ""
+                "titulo": "NUESTRA EMPRESA",
+                "subtitulo": "Cultivando el futuro de la agroexportación con orgullo desde nuestra región.",
+                "imagen_fondo": "/imagenes/empresa-banner.jpg"
+            },
+            "nosotros": {
+                "titulo": "SOBRE NOSOTROS"
             },
             "mision_vision": {
                 "titulo_mision": "MISIÓN",
                 "titulo_vision": "VISIÓN",
-                "imagen_fondo": ""
+                "imagen_fondo": "/imagenes/inicio-about-2.jpg"
             },
             "valores": {
                 "titulo": "VALORES"
             },
             "historia": {
-                "titulo": "NUESTRA HISTORIA",
-                "imagenes": [
-                    "",
-                    "",
-                    "",
-                    ""
+                "titulo": "NUESTRA TRAYECTORIA",
+                "etapas": [
+                    {
+                        "periodo": "2016 - 2018",
+                        "eventos": [
+                            {
+                                "subtitulo": "2016 - Fundación de La Kiarita",
+                                "texto": "Nace Fundo La Kiarita en las tierras de Ancash, con el firme propósito de producir higos de calidad superior destinados al mercado internacional."
+                            },
+                            {
+                                "subtitulo": "2018 - Calidad que Define",
+                                "texto": "Logramos nuestra primera cosecha a gran escala, estableciendo los estándares de selección que nos permiten ofrecer productos con altos niveles de frescura y sabor."
+                            }
+                        ],
+                        "imagen": "/imagenes/empresa-historia-1.jpg",
+                        "pie_imagen": "* Imagen de la primera cosecha *"
+                    },
+                    {
+                        "periodo": "2020 - 2022",
+                        "eventos": [
+                            {
+                                "subtitulo": "2020 - Transformación Tecnológica",
+                                "texto": "Cumpliendo con nuestra misión, integramos recursos científicos y tecnológicos de vanguardia para optimizar el rendimiento de nuestros cultivos de manera eficiente."
+                            },
+                            {
+                                "subtitulo": "2022 - Cruzando Fronteras",
+                                "texto": "Iniciamos nuestra expansión hacia mercados globales, logrando exportar con éxito a destinos estratégicos como España, Francia y Estados Unidos."
+                            }
+                        ],
+                        "imagen": "/imagenes/empresa-historia-2.jpg",
+                        "pie_imagen": "* Imagen de la primera carga hacia el puerto *"
+                    },
+                    {
+                        "periodo": "2024 - 2026",
+                        "eventos": [
+                            {
+                                "subtitulo": "2024 - Crecimiento Sostenible",
+                                "texto": "Consolidamos un equipo de trabajo altamente calificado y proactivo, garantizando una organización orientada al crecimiento permanente y la sostenibilidad agrícola."
+                            },
+                            {
+                                "subtitulo": "2026 - Liderazgo Regional y Digital",
+                                "texto": "Nos posicionamos como la empresa líder de la región, impulsando nuestra presencia digital para fortalecer la confianza en cada uno de nuestros contratos internacionales."
+                            }
+                        ],
+                        "imagen": "/imagenes/empresa-historia-3.jpg",
+                        "pie_imagen": "* Imagen de la inspección sanitaria y de calidad *"
+                    }
                 ]
             },
             "talento_local": {
                 "titulo": "SEMBRANDO CONOCIMIENTO: DESARROLLO DEL TALENTO LOCAL",
                 "texto": "Fomentamos el crecimiento de nuestra comunidad en Ancash a través de programas de capacitación técnica en agroexportación. Nuestro objetivo es consolidar un equipo de trabajo altamente calificado y proactivo que lidere la innovación en el sector agrícola de nuestra región.",
-                "imagen": ""
+                "imagen": "/imagenes/empresa-social-1.jpg"
             },
             "compromiso_ambiental": {
                 "titulo": "COMPROMISO AMBIENTAL: GESTIÓN SOSTENIBLE DEL AGUA.",
                 "texto": "Empleamos recursos tecnológicos avanzados para optimizar el uso del agua y proteger la salud de nuestros suelos. Esta visión de crecimiento permanente y sostenido nos permite garantizar una producción que respeta el equilibrio natural y asegura el bienestar de las futuras generaciones.",
-                "imagen": ""
+                "imagen": "/imagenes/empresa-social-2.jpg"
             }
         },
         "alcance": {

@@ -6,7 +6,7 @@ interface Props {
 
 const { color, tipo } = Astro.props;
 
-let estilo = "mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center";
+let estilo = "mx-auto grid grid-cols-1 lg:grid-cols-2 items-center w-full";
 if (tipo === "limpio") {
     estilo = "";
 }
@@ -15,5 +15,5 @@ if (tipo === "limpio") {
 <section
     class={`${estilo} ${color}`}
 >
-    <slot />
+    <slot/>
 </section>

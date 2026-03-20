@@ -1,0 +1,225 @@
+---
+import { Image } from "astro:assets";
+import {
+    CheckCircle2,
+    ClipboardCheck,
+    Lightbulb,
+    Users,
+    Search,
+    Leaf,
+} from "@lucide/astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+
+// componentes
+import ContenidoSecciones from "../components/shared/contenidoSecciones.astro";
+import HistoriaBloque from "../components/empresa/HistoriaBloque.astro";
+import ContenedorSecciones from "../components/shared/contenedorSecciones.astro";
+import HeroPagina from "../components/shared/HeroPagina.astro";
+import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
+import ContenedorFondoImagen from "../components/empresa/contenedorFondoImagen.astro";
+import ContenidoMision from "../components/empresa/contenidoMision.astro";
+
+// datos
+import data from "../data/datos.json";
+
+// variables para los datos
+const { titulo, subtitulo, imagen_fondo } = data.paginas.empresa.hero;
+const { descripcion_larga } = data.global.empresa;
+const { titulo: tituloNosotros } = data.paginas.empresa.nosotros;
+const { mision, vision } = data.global.empresa;
+const {
+    titulo_mision,
+    titulo_vision,
+    imagen_fondo: imgMision,
+} = data.paginas.empresa.mision_vision;
+const { valores } = data.global.empresa;
+const { titulo: tituloValores } = data.paginas.empresa.valores;
+const { titulo: tituloHistoria, etapas } = data.paginas.empresa.historia;
+const {
+    titulo: tituloSocial1,
+    texto: textoSocial1,
+    imagen: imagenSocial1,
+} = data.paginas.empresa.talento_local;
+const {
+    titulo: tituloSocial2,
+    texto: textoSocial2,
+    imagen: imagenSocial2,
+} = data.paginas.empresa.compromiso_ambiental;
+
+// lista de iconos para valores
+const iconosValores = [
+    CheckCircle2,
+    ClipboardCheck,
+    Lightbulb,
+    Users,
+    Search,
+    Leaf,
+];
+
+// funcion para obtener la ruta de la imagen
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const getImagePath = (jsonPath: string) => {
+    const fullPath = `/src/assets${jsonPath}`;
+    if (!localImages[fullPath])
+        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
+    return localImages[fullPath]();
+};
+---
+
+<Layout>
+    <!-- Hero de la página -->
+    <HeroPagina
+        titulo={titulo}
+        subtitulo={subtitulo}
+        imagen_fondo={imagen_fondo}
+    />
+
+    <!-- sobre nosotros -->
+    <ContenedorSecciones color="bg-kiarita-white" tipo="limpio">
+        <SubContenedorSecciones extrastyle="space-y-6">
+            <ContenidoSecciones
+                title={tituloNosotros}
+                posicionTitulo="text-center"
+                tamañoTitulo="text-2xl lg:text-3xl"
+            />
+            {
+                descripcion_larga.map((parrafo: string) => (
+                    <p class="font-inter text-kiarita-gray-dark font-medium leading-relaxed text-sm md:text-base text-center space-y-6">
+                        {parrafo}
+                    </p>
+                ))
+            }
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- misión y visión -->
+    <ContenedorFondoImagen imagen={imgMision}>
+        <SubContenedorSecciones>
+            <div class="relative z-20 px-6 lg:px-[80px] max-w-7xl mx-auto">
+                <div class="flex flex-row gap-25">
+                    <ContenidoMision
+                        titulo_mision={titulo_mision}
+                        mision={mision}
+                    />
+
+                    <div class="hidden md:block w-px bg-kiarita-gray"></div>
+
+                    <ContenidoMision
+                        titulo_mision={titulo_vision}
+                        mision={vision}
+                    />
+                </div>
+            </div>
+        </SubContenedorSecciones>
+    </ContenedorFondoImagen>
+
+    <!-- valores -->
+    <ContenedorSecciones tipo="limpio" color="bg-kiarita-green-dark">
+        <SubContenedorSecciones>
+            <ContenidoSecciones
+                title={tituloValores}
+                posicionTitulo="text-center mb-20"
+                tamañoTitulo="text-2xl lg:text-3xl"
+                colorTitulo="text-kiarita-white"
+            />
+            <div class="max-w-7xl mx-auto">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 xl:gap-x-20"
+                >
+                    {
+                        valores.map(
+                            (
+                                valor: { titulo: string; texto: string },
+                                index: number,
+                            ) => {
+                                const IconComponent = iconosValores[index];
+                                return (
+                                    <div class="flex flex-col items-center text-center">
+                                        <div class="flex items-center justify-center gap-3 mb-4 text-kiarita-white">
+                                            <IconComponent class="w-6 h-6 flex-shrink-0" />
+                                            <h4 class="font-commissioner font-bold text-lg md:text-xl">
+                                                {valor.titulo}
+                                            </h4>
+                                        </div>
+
+                                        <p class="font-inter text-kiarita-white/90 leading-relaxed text-sm md:text-base px-2">
+                                            {valor.texto}
+                                        </p>
+                                    </div>
+                                );
+                            },
+                        )
+                    }
+                </div>
+            </div>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- historia -->
+    <ContenedorSecciones color="bg-kiarita-white" tipo="limpio">
+        <SubContenedorSecciones>
+            <ContenidoSecciones
+                title={tituloHistoria}
+                posicionTitulo="text-center"
+            />
+
+            <div class="flex flex-col justify-center mt-14 gap-20">
+                {
+                    etapas.map((etapa: any, index: number) => (
+                        <HistoriaBloque
+                            periodo={etapa.periodo}
+                            eventos={etapa.eventos}
+                            imagen={etapa.imagen}
+                            pie_imagen={etapa.pie_imagen}
+                            isReverse={index % 2 !== 0}
+                        />
+                    ))
+                }
+            </div>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- social 1 -->
+    <ContenedorSecciones color="bg-kiarita-gray-lighter">
+        <div class="w-full h-full">
+            <Image
+                src={getImagePath(imagenSocial1)}
+                alt="Higo Fundo La Kiarita"
+                class="w-full h-full object-cover object-[10%]"
+                width={800}
+                height={600}
+            />
+        </div>
+        <SubContenedorSecciones>
+            <ContenidoSecciones
+                title={tituloSocial1}
+                descripcion={textoSocial1}
+                colorTitulo="text-kiarita-purple"
+            />
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- social 2 -->
+    <ContenedorSecciones color="bg-kiarita-gray-lighter">
+        <SubContenedorSecciones>
+            <ContenidoSecciones
+                title={tituloSocial2}
+                descripcion={textoSocial2}
+                colorTitulo="text-kiarita-purple"
+            />
+        </SubContenedorSecciones>
+        <div class="w-full h-full">
+            <Image
+                src={getImagePath(imagenSocial2)}
+                alt="Higo Fundo La Kiarita"
+                class="w-full h-full object-cover object-[10%]"
+                width={800}
+                height={600}
+            />
+        </div>
+    </ContenedorSecciones>
+</Layout>

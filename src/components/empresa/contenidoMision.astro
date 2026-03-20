@@ -1,0 +1,21 @@
+---
+interface Props {
+    titulo_mision: string;
+    mision: string;
+}
+
+const { titulo_mision, mision } = Astro.props;
+---
+
+<div class="flex-1/2 flex flex-col items-center justify-center">
+    <h2
+        class="font-commissioner font-bold text-3xl text-kiarita-white uppercase mb-6 text-center"
+    >
+        {titulo_mision}
+    </h2>
+    <p
+        class="font-inter text-kiarita-gray-lighter leading-relaxed text-center text-sm md:text-base"
+    >
+        {mision}
+    </p>
+</div>
