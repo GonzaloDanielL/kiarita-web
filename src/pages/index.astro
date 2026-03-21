@@ -18,7 +18,8 @@ import PeriodosFechas from "../components/shared/periodosFechas.astro";
 import HeroPagina from "../components/shared/HeroPagina.astro";
 import Mapa from "../components/ui/mapa.astro";
 
-import imagenProducto from "/src/assets/imagenes/inicio-producto.jpg";
+import ImagenSecciones from "../components/shared/imagenSecciones.astro";
+import { Font } from "astro:assets";
 
 const { titulo, subtitulo, video } = data.paginas.inicio.hero;
 const {
@@ -69,100 +70,112 @@ const getImagePath = (jsonPath: string) => {
 
     <!-- About inicio -->
     <ContenedorSecciones color="bg-kiarita-white">
-        <SubContenedorSecciones tipo="izquierda">
-            <div class="relative h-[450px] md:h-[550px]">
-                <Image
-                    src={getImagePath(imagenes[0])}
-                    alt="Vista de campos Fundo La Kiarita"
-                    class="absolute top-0 left-0 w-2/3 h-2/3 object-cover rounded-2xl shadow-lg z-10 border-5 border-kiarita-white"
-                    width={600}
-                    height={400}
-                />
-                <Image
-                    src={getImagePath(imagenes[1])}
-                    alt="Trabajadora de Fundo La Kiarita"
-                    class="absolute top-1/4 right-0 w-1/2 h-1/2 object-cover rounded-2xl shadow-xl z-20 border-4 border-kiarita-white"
-                    width={400}
-                    height={200}
-                />
-                <Image
-                    src={getImagePath(imagenes[2])}
-                    alt="Detalle de cosecha Fundo La Kiarita"
-                    class="absolute bottom-0 left-[10%] w-[45%] h-2/5 object-cover rounded-2xl shadow-xl z-30 border-5 border-kiarita-white"
-                    width={200}
-                    height={100}
-                />
-            </div>
-        </SubContenedorSecciones>
-
         <SubContenedorSecciones>
-            <ContenidoSecciones
-                title={tituloLiderazgo}
-                descripcion={descripcion_corta}
-            />
+            <div class="h-full grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative w-full h-full">
+                    <Image
+                        src={getImagePath(imagenes[0])}
+                        alt="Vista de campos Fundo La Kiarita"
+                        class="w-full h-full object-cover rounded-sm shadow-md"
+                        width={700}
+                        height={900}
+                    />
+                </div>
 
-            <ContenedorDatos>
-                <DatosCuadro numero={anios} texto="Años" />
-                <DatosCuadro numero={trabajadores} texto="Trabajadores" />
-            </ContenedorDatos>
+                <div
+                    class="grid grid-cols-1 grid-rows-[1.4fr_1fr] gap-8 w-full h-full"
+                >
+                    <div class="relative w-full h-full">
+                        <Image
+                            src={getImagePath(imagenes[1])}
+                            alt="Trabajadora de Fundo La Kiarita"
+                            class="w-full h-full object-cover rounded-sm shadow-md"
+                            width={500}
+                            height={500}
+                        />
+                    </div>
 
-            <LinkPagina texto={cta_texto} enlace={cta_enlace} />
+                    <div class="relative w-full h-full">
+                        <Image
+                            src={getImagePath(imagenes[2])}
+                            alt="Detalle de cosecha Fundo La Kiarita"
+                            class="w-full h-full object-cover rounded-sm shadow-md"
+                            width={500}
+                            height={400}
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <ContenidoSecciones
+                    title={tituloLiderazgo}
+                    descripcion={descripcion_corta}
+                />
+
+                <ContenedorDatos>
+                    <DatosCuadro numero={anios} texto="Años" />
+                    <DatosCuadro numero={trabajadores} texto="Trabajadores" />
+                </ContenedorDatos>
+
+                <LinkPagina texto={cta_texto} enlace={cta_enlace} />
+            </div>
         </SubContenedorSecciones>
     </ContenedorSecciones>
 
     <!-- Producto inicio -->
     <ContenedorSecciones color="bg-kiarita-purple-light">
         <SubContenedorSecciones>
-            <ContenidoSecciones
-                title={tituloProducto}
-                descripcion={descripcion}
-                colorTitulo="text-kiarita-purple"
-            />
-            <PeriodosFechas />
-            <LinkPagina
-                texto={cta_texto_producto}
-                enlace={cta_enlace_producto}
-                hoverColor="hover:text-kiarita-purple"
-            />
-        </SubContenedorSecciones>
+            <div>
+                <ContenidoSecciones
+                    title={tituloProducto}
+                    descripcion={descripcion}
+                    colorTitulo="text-kiarita-purple"
+                />
+                <PeriodosFechas />
+                <LinkPagina
+                    texto={cta_texto_producto}
+                    enlace={cta_enlace_producto}
+                    hoverColor="hover:text-kiarita-purple"
+                />
+            </div>
 
-        <div class="w-full h-full bg-amber-400">
-            <Image
-                src={imagenProducto}
-                alt="Higo Fundo La Kiarita"
-                class="w-full h-full object-cover object-[10%]"
-                width={800}
-                height={600}
-            />
-        </div>
+            <ImagenSecciones imagen={imagen_producto} posicion="object-[10%]" />
+        </SubContenedorSecciones>
     </ContenedorSecciones>
 
     <!-- Garantia inicio -->
     <ContenedorSecciones color="bg-kiarita-green-dark">
-        <SubContenedorSecciones tipo="izquierda" height="h-full">
-            <Mapa />
-        </SubContenedorSecciones>
         <SubContenedorSecciones>
-            <ContenidoSecciones
-                title={tituloGarantia}
-                descripcion={descripcion_garantia}
-                colorTitulo="text-kiarita-white"
-                colorTexto="text-kiarita-gray-lighter"
-            />
+            <div class="w-full h-full">
+                <Mapa />
+            </div>
+            <div>
+                <ContenidoSecciones
+                    title={tituloGarantia}
+                    descripcion={descripcion_garantia}
+                    colorTitulo="text-kiarita-white"
+                    colorTexto="text-kiarita-gray-lighter"
+                />
 
-            <LinkPagina
-                texto={cta_texto_garantia}
-                enlace={cta_enlace_garantia}
-                color="text-kiarita-gray-lighter"
-                hoverColor="hover:text-kiarita-white"
-            />
+                <LinkPagina
+                    texto={cta_texto_garantia}
+                    enlace={cta_enlace_garantia}
+                    color="text-kiarita-gray-lighter"
+                    hoverColor="hover:text-kiarita-white"
+                />
+            </div>
         </SubContenedorSecciones>
     </ContenedorSecciones>
 
-    <ContenedorSecciones color="bg-kiarita-white" tipo="limpio">
-        <div class="flex flex-col items-center py-24 xl:py-32 w-full">
+    <!-- certificaciones -->
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones
+            tipo="limpio"
+            extrastyle="w-full flex flex-col items-center"
+        >
             <h2
-                class="font-commissioner font-bold text-1xl lg:text-2xl uppercase leading-tight text-kiarita-green mb-10"
+                class="font-commissioner font-bold text-1xl lg:text-2xl leading-tight text-kiarita-green mb-10"
             >
                 Nuestras Certificaciones
             </h2>
@@ -197,100 +210,103 @@ const getImagePath = (jsonPath: string) => {
                     width={600}
                 />
             </div>
-        </div>
+        </SubContenedorSecciones>
     </ContenedorSecciones>
+
+    <!-- contacto -->
     <ContenedorSecciones
-        color="bg-kiarita-gray-lighter py-24 px-6 lg:px-[80px] xl:px-[250px]"
-        tipo="limpio"
+        color="bg-kiarita-gray-lighter"
     >
-        <div class="max-w-6xl mx-auto">
-            <h2
-                class="font-commissioner font-extrabold text-4xl lg:text-4xl text-kiarita-green text-center uppercase mb-16"
-            >
-                {tituloContacto}
-            </h2>
+        <SubContenedorSecciones tipo="limpio">
+            <div class="max-w-6xl mx-auto">
+                <h2
+                    class="font-commissioner font-extrabold text-4xl lg:text-4xl text-kiarita-green text-center mb-16"
+                >
+                    {tituloContacto}
+                </h2>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-                <div class="flex flex-col gap-10">
-                    <div>
-                        <h4
-                            class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-2"
-                        >
-                            <MapPin class="w-6 h-6" />
-                            Dirección
-                        </h4>
-                        <p
-                            class="font-inter text-kiarita-gray-dark pl-9 leading-relaxed"
-                        >
-                            {direccion}
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4
-                            class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-2"
-                        >
-                            <Phone class="w-6 h-6" />
-                            Teléfono
-                        </h4>
-                        <p
-                            class="font-inter text-kiarita-gray-dark pl-9 leading-relaxed"
-                        >
-                            {telefonos[0]} / {telefonos[1]}
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4
-                            class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-4"
-                        >
-                            <Users class="w-6 h-6" />
-                            Síguenos en:
-                        </h4>
-                        <div class="flex gap-4 pl-9">
-                            <a
-                                href="#"
-                                class="text-[#1877F2] hover:opacity-80 transition-opacity"
-                                aria-label="Facebook"
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+                    <div class="flex flex-col gap-10">
+                        <div>
+                            <h4
+                                class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-2"
                             >
-                                <Facebook class="w-8 h-8 fill-current" />
-                            </a>
-                            <a
-                                href="#"
-                                class="text-[#0A66C2] hover:opacity-80 transition-opacity"
-                                aria-label="LinkedIn"
+                                <MapPin class="w-6 h-6" />
+                                Dirección
+                            </h4>
+                            <p
+                                class="font-inter text-kiarita-gray-dark pl-9 leading-relaxed"
                             >
-                                <Linkedin class="w-8 h-8 fill-current" />
-                            </a>
+                                {direccion}
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4
+                                class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-2"
+                            >
+                                <Phone class="w-6 h-6" />
+                                Teléfono
+                            </h4>
+                            <p
+                                class="font-inter text-kiarita-gray-dark pl-9 leading-relaxed"
+                            >
+                                {telefonos[0]} / {telefonos[1]}
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4
+                                class="font-commissioner font-bold text-xl text-kiarita-black flex items-center gap-3 mb-4"
+                            >
+                                <Users class="w-6 h-6" />
+                                Síguenos en:
+                            </h4>
+                            <div class="flex gap-4 pl-9">
+                                <a
+                                    href="#"
+                                    class="text-[#1877F2] hover:opacity-80 transition-opacity"
+                                    aria-label="Facebook"
+                                >
+                                    <Facebook class="w-8 h-8 fill-current" />
+                                </a>
+                                <a
+                                    href="#"
+                                    class="text-[#0A66C2] hover:opacity-80 transition-opacity"
+                                    aria-label="LinkedIn"
+                                >
+                                    <Linkedin class="w-8 h-8 fill-current" />
+                                </a>
+                            </div>
                         </div>
                     </div>
+
+                    <form class="flex flex-col gap-6">
+                        <InputNormal
+                            id="nombre"
+                            label={formulario.campos[0]}
+                            type="text"
+                        />
+
+                        <InputNormal
+                            id="email"
+                            label={formulario.campos[1]}
+                            type="email"
+                        />
+
+                        <InputArea id="mensaje" label={formulario.campos[2]} />
+
+                        <div class="mt-2">
+                            <BotonSecundario texto={formulario.boton} />
+                            <p
+                                class="font-inter text-xs text-kiarita-gray text-left mt-3 px-4"
+                            >
+                                {formulario.nota}
+                            </p>
+                        </div>
+                    </form>
                 </div>
-
-                <form class="flex flex-col gap-6">
-                    <InputNormal
-                        id="nombre"
-                        label={formulario.campos[0]}
-                        type="text"
-                    />
-
-                    <InputNormal
-                        id="email"
-                        label={formulario.campos[1]}
-                        type="email"
-                    />
-
-                    <InputArea id="mensaje" label={formulario.campos[2]} />
-
-                    <div class="mt-2">
-                        <BotonSecundario texto={formulario.boton} />
-                        <p
-                            class="font-inter text-xs text-kiarita-gray text-left mt-3 px-4"
-                        >
-                            {formulario.nota}
-                        </p>
-                    </div>
-                </form>
             </div>
-        </div>
+        </SubContenedorSecciones>
     </ContenedorSecciones>
 </Layout>

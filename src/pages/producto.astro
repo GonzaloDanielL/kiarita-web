@@ -1,0 +1,243 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import { ChevronDown } from "@lucide/astro";
+
+import ContenedorSecciones from "../components/shared/contenedorSecciones.astro";
+import HeroPagina from "../components/shared/HeroPagina.astro";
+import ContenidoSecciones from "../components/shared/contenidoSecciones.astro";
+import ContenedorContenido from "../components/shared/contenedorContenido.astro";
+import PeriodosFechas from "../components/shared/periodosFechas.astro";
+import ImagenSecciones from "../components/shared/imagenSecciones.astro";
+
+// datos
+import data from "../data/datos.json";
+import ContenedorLista from "../components/producto/contenedorLista.astro";
+import ElementoLista from "../components/producto/elementoLista.astro";
+import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
+
+// variables para los datos
+const { titulo, subtitulo, imagen_fondo } = data.paginas.producto.hero;
+const {
+    titulo: tituloProducto,
+    parrafos: descripcion,
+    imagen: imagenProducto,
+} = data.paginas.producto.detalle_higo;
+
+const { titulo: tituloProcesso, etapas } = data.paginas.producto.ruta_calidad;
+
+const { titulo: tituloCuidado, pasos: guia_cuidado } =
+    data.paginas.producto.guia_cuidado;
+
+const { titulo: tituloSugerencias, items: sugerencias } =
+    data.paginas.producto.sugerencias;
+
+const { titulo: titulopreguntas, preguntas } = data.paginas.producto.faq;
+
+// --- LÓGICA DE IMÁGENES ---
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const getImagePath = (jsonPath: string) => {
+    const fullPath = `/src/assets${jsonPath}`;
+    if (!localImages[fullPath])
+        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
+    return localImages[fullPath]();
+};
+---
+
+<Layout>
+    <!-- Hero de la página -->
+    <HeroPagina
+        titulo={titulo}
+        subtitulo={subtitulo}
+        imagen_fondo={imagen_fondo}
+    />
+
+    <!-- sobre nuestro higo -->
+    <ContenedorSecciones color="bg-kiarita-purple-light">
+        <SubContenedorSecciones>
+            <ContenedorContenido>
+                <ContenidoSecciones
+                    title={tituloProducto}
+                    parrafos={descripcion}
+                    colorTitulo="text-kiarita-purple"
+                />
+                <PeriodosFechas />
+            </ContenedorContenido>
+
+            <ImagenSecciones imagen={imagenProducto} />
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- proceso de cosecha -->
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones tipo="limpio">
+            <ContenidoSecciones
+                title={tituloProcesso}
+                colorTitulo="text-kiarita-green"
+                posicionTitulo="text-center"
+            />
+
+            <ContenedorLista>
+                {etapas.map((etapa: any) => <ElementoLista elemento={etapa} />)}
+            </ContenedorLista>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- guia de conservacion -->
+    <ContenedorSecciones color="bg-kiarita-purple-light">
+        <SubContenedorSecciones tipo="limpio">
+            <ContenidoSecciones
+                title={tituloCuidado}
+                colorTitulo="text-kiarita-purple"
+                posicionTitulo="text-center"
+            />
+
+            <ContenedorLista>
+                {
+                    guia_cuidado.map((paso: any) => (
+                        <ElementoLista
+                            elemento={paso}
+                            colorEtiqueta="text-kiarita-purple"
+                            colorTitulo="text-kiarita-purple"
+                            colorBorde="text-kiarita-purple"
+                        />
+                    ))
+                }
+            </ContenedorLista>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- preparaciones -->
+    <ContenedorSecciones color="bg-kiarita-purple-dark">
+        <SubContenedorSecciones tipo="limpio">
+            <ContenidoSecciones
+                title={tituloSugerencias}
+                colorTitulo="text-kiarita-white"
+                posicionTitulo="text-center"
+            />
+
+            <ContenedorLista>
+                {
+                    sugerencias.map((paso: any) => (
+                        <ElementoLista
+                            elemento={paso}
+                            colorBorde="text-kiarita-purple"
+                            colorTexto="text-kiarita-gray-light"
+                        />
+                    ))
+                }
+            </ContenedorLista>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- preguntas -->
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones
+            tipo="limpio"
+            extrastyle="max-w-4xl mx-auto flex flex-col items-center"
+        >
+            <ContenidoSecciones
+                title={titulopreguntas}
+                colorTitulo="text-kiarita-green"
+                posicionTitulo="text-center"
+            />
+
+            <div class="max-w-2xl mt-10 flex flex-col" id="faq-accordion">
+                {
+                    preguntas.map(
+                        (
+                            item: { pregunta: string; respuesta: string },
+                            index: number,
+                        ) => (
+                            <div class="faq-item border-b border-kiarita-gray-lighter py-6 w-full">
+                                <button class="faq-button w-full flex items-center justify-between text-left focus:outline-none group gap-4">
+                                    <h3 class="font-commissioner font-bold text-lg md:text-xl text-kiarita-gray-dark">
+                                        {item.pregunta}
+                                    </h3>
+
+                                    <svg
+                                        class="faq-icon w-6 h-6 flex-shrink-0 text-kiarita-gray-dark"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </button>
+
+                                <div class="faq-answer max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-in-out">
+                                    <p class="font-inter text-kiarita-gray-dark leading-relaxed text-sm md:text-base pt-4 pr-8">
+                                        {item.respuesta}
+                                    </p>
+                                </div>
+                            </div>
+                        ),
+                    )
+                }
+            </div>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+</Layout>
+
+<script>
+        // Esperamos a que el DOM cargue para ejecutar el script
+        document.addEventListener("DOMContentLoaded", () => {
+            const faqItems = document.querySelectorAll(".faq-item");
+
+            faqItems.forEach((item) => {
+                // Hacemos el casting (as) para que TS sepa qué tipo de elemento es
+                const button = item.querySelector(".faq-button") as HTMLButtonElement | null;
+                const answer = item.querySelector(".faq-answer") as HTMLElement | null;
+                const icon = item.querySelector(".faq-icon") as HTMLElement | null;
+
+                // Validación de seguridad para que TS no lance errores de "Object is possibly 'null'"
+                if (!button || !answer || !icon) return;
+
+                button.addEventListener("click", () => {
+                    const isOpen = answer.classList.contains("max-h-[500px]");
+
+                    // Comportamiento de Acordeón: Cerrar todos los demás al abrir uno nuevo
+                    faqItems.forEach((otherItem) => {
+                        const otherAnswer = otherItem.querySelector(".faq-answer") as HTMLElement | null;
+                        const otherIcon = otherItem.querySelector(".faq-icon") as HTMLElement | null;
+
+                        if (otherAnswer && otherIcon) {
+                            otherAnswer.classList.remove(
+                                "max-h-[500px]",
+                                "opacity-100",
+                            );
+                            otherAnswer.classList.add("max-h-0", "opacity-0");
+                            otherIcon.classList.remove("rotate-180");
+                        }
+                    });
+
+                    // Si el que clickeamos estaba cerrado, lo abrimos
+                    if (!isOpen) {
+                        answer.classList.remove("max-h-0", "opacity-0");
+                        // Usamos un max-height alto para asegurarnos de que quepa el texto
+                        answer.classList.add("max-h-[500px]", "opacity-100");
+                        icon.classList.add("rotate-180");
+                    }
+                });
+            });
+
+            // (Opcional) Abrir el primer elemento por defecto al cargar
+            if (faqItems.length > 0) {
+                const firstAnswer = faqItems[0].querySelector(".faq-answer") as HTMLElement | null;
+                const firstIcon = faqItems[0].querySelector(".faq-icon") as HTMLElement | null;
+                
+                if (firstAnswer && firstIcon) {
+                    firstAnswer.classList.remove("max-h-0", "opacity-0");
+                    firstAnswer.classList.add("max-h-[500px]", "opacity-100");
+                    firstIcon.classList.add("rotate-180");
+                }
+            }
+        });
+    </script>

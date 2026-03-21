@@ -139,12 +139,12 @@
     "paginas": {
         "inicio": {
             "hero": {
-                "titulo": "DE NUESTRA TIERRA AL MUNDO",
+                "titulo": "De Nuestra Tierra Al Mundo",
                 "subtitulo": "Innovación y frescura de Nuevo Chimbote para los mercados más exigentes del mundo",
                 "video": "/videos/hero-inicio.webm"
             },
             "liderazgo": {
-                "titulo": "LIDERAZGO Y CALIDAD DESDE EL CORAZÓN DE NUESTRA TIERRA",
+                "titulo": "Liderazgo y Calidad Desde el Corazón de Nuestra Tierra",
                 "imagenes": [
                     "/imagenes/inicio-about-1.png",
                     "/imagenes/inicio-about-3.jpg",
@@ -154,20 +154,20 @@
                 "cta_enlace": "/empresa"
             },
             "producto": {
-                "titulo": "NUESTRO PRODUCTO: EXCELENCIA EN CADA COSECHA.",
+                "titulo": "Nuestro Producto: Excelencia en Cada Cosecha.",
                 "descripcion": "Producimos y exportamos higos de la más alta calidad, cultivados bajo procesos de innovación tecnológica que aseguran frescura y sabor en cada destino internacional. Nuestro enfoque en el crecimiento sostenible nos permite ofrecer un producto premium que cumple con los estándares más exigentes del mercado frutícola global.",
                 "imagen": "/imagenes/inicio-producto.jpg",
                 "cta_texto": "Conocer mas sobre el Higo ->",
                 "cta_enlace": "/producto"
             },
             "garantia": {
-                "titulo": "NUESTRA GARANTÍA: TRAZABILIDAD Y CALIDAD CERTIFICADA",
+                "titulo": "Trazabilidad y Calidad Certificada",
                 "descripcion": "En Fundo La Kiarita, entendemos que la confianza es la base de cada contrato internacional. Por ello, implementamos rigurosos controles de calidad y tecnología avanzada en cada etapa de producción. Contamos con las certificaciones exigidas por los mercados globales, asegurando que cada envío de higos sea un ejemplo de frescura, seguridad alimentaria y cumplimiento de los más altos estándares operativos.",
                 "cta_texto": "Saber mas sobre nuestra trazabilidad",
                 "cta_enlace": "/alcance"
             },
             "contacto": {
-                "titulo": "CONTACTO",
+                "titulo": "Contacto",
                 "formulario": {
                     "campos": [
                         "Nombre",
@@ -186,18 +186,18 @@
                 "imagen_fondo": "/imagenes/empresa-banner.jpg"
             },
             "nosotros": {
-                "titulo": "SOBRE NOSOTROS"
+                "titulo": "Sobre Nosotros"
             },
             "mision_vision": {
-                "titulo_mision": "MISIÓN",
-                "titulo_vision": "VISIÓN",
+                "titulo_mision": "Misión",
+                "titulo_vision": "Visión",
                 "imagen_fondo": "/imagenes/inicio-about-2.jpg"
             },
             "valores": {
-                "titulo": "VALORES"
+                "titulo": "Valores"
             },
             "historia": {
-                "titulo": "NUESTRA TRAYECTORIA",
+                "titulo": "Nuestra Trayectoria",
                 "etapas": [
                     {
                         "periodo": "2016 - 2018",
@@ -247,12 +247,12 @@
                 ]
             },
             "talento_local": {
-                "titulo": "SEMBRANDO CONOCIMIENTO: DESARROLLO DEL TALENTO LOCAL",
+                "titulo": "Sembrando Conocimiento: Desarrollo del Talento Local",
                 "texto": "Fomentamos el crecimiento de nuestra comunidad en Ancash a través de programas de capacitación técnica en agroexportación. Nuestro objetivo es consolidar un equipo de trabajo altamente calificado y proactivo que lidere la innovación en el sector agrícola de nuestra región.",
                 "imagen": "/imagenes/empresa-social-1.jpg"
             },
             "compromiso_ambiental": {
-                "titulo": "COMPROMISO AMBIENTAL: GESTIÓN SOSTENIBLE DEL AGUA.",
+                "titulo": "Compromiso Ambiental: Gestión Sostenible del Agua.",
                 "texto": "Empleamos recursos tecnológicos avanzados para optimizar el uso del agua y proteger la salud de nuestros suelos. Esta visión de crecimiento permanente y sostenido nos permite garantizar una producción que respeta el equilibrio natural y asegura el bienestar de las futuras generaciones.",
                 "imagen": "/imagenes/empresa-social-2.jpg"
             }
@@ -274,12 +274,12 @@
         },
         "producto": {
             "hero": {
-                "titulo": "EL FRUTO DE NUESTRA TIERRA",
+                "titulo": "El Fruto de Nuestra Tierra",
                 "subtitulo": "Calidad internacional que nace en el corazón de Ancash para el mundo",
-                "imagen_fondo": ""
+                "imagen_fondo": "/imagenes/producto-banner.jpg"
             },
             "detalle_higo": {
-                "titulo": "EL HIGO DE KIARITA: EXCELENCIA EN CADA FRUTO",
+                "titulo": "El Higo de Kiarita: Excelencia en Cada Fruto",
                 "parrafos": [
                     "Nuestro higo es el resultado de un equilibrio perfecto entre la riqueza de la tierra en Nuevo Chimbote y la innovación técnica que aplicamos en cada etapa de su desarrollo. Seleccionamos cada fruto bajo los más estrictos estándares internacionales para asegurar que su frescura y dulzor lleguen intactos a los mercados de exportación en Europa, Asia y América.",
                     "En Fundo La Kiarita, combinamos la experiencia de nuestro equipo altamente calificado con recursos científicos avanzados para garantizar un producto premium que destaca por su textura, tamaño y calidad superior. Todo esto bajo un modelo de crecimiento sostenible que respeta el entorno natural de Ancash y fortalece nuestra posición como líderes regionales en el sector agroexportador."
@@ -299,97 +299,97 @@
                     "nov",
                     "dic"
                 ],
-                "imagenes": [
-                    "",
-                    ""
-                ]
+                "imagen": "/imagenes/producto-higo.jpg"
             },
             "ruta_calidad": {
-                "titulo": "NUESTRA RUTA DE CALIDAD\nTRAZABILIDAD DE PUNTA A PUNTA",
+                "titulo": "Nuestra Ruta de Calidad\nTrazabilidad de Punta a Punta",
                 "etapas": [
                     {
                         "etiqueta": "Etapa 1",
                         "titulo": "CULTIVO CON BASE CIENTÍFICA",
                         "texto": "Ser la empresa líder de la región en la producción y exportación de frutas y vegetales, ofreciendo a nuestros clientes, servicios y productos con altos estándares de calidad.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cosecha-ep1.jpg"
                     },
                     {
                         "etiqueta": "Etapa 2",
                         "titulo": "MONITOREO ESPECIALIZADO",
                         "texto": "Nuestro equipo humano altamente calificado supervisa diariamente el crecimiento, aplicando técnicas de innovación para un desarrollo sano y sostenible.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cosecha-ep2.jpg"
                     },
                     {
                         "etiqueta": "Etapa 2",
                         "titulo": "COSECHA SELECTIVA MANUAL",
                         "texto": "Realizamos la recolección en el punto exacto de madurez, asegurando que cada higo mantenga la frescura y el dulzor característico de nuestra región.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cosecha-ep3.jpg"
                     },
                     {
                         "etiqueta": "Etapa 4",
                         "titulo": "CONTROL DE CALIDAD",
                         "texto": "Cada fruto pasa por un riguroso proceso de selección y limpieza bajo estándares internacionales para garantizar la seguridad alimentaria.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cosecha-ep4.jpg"
                     },
                     {
                         "etiqueta": "Etapa 5",
                         "titulo": "EMPAQUE DE ALTA PRECISIÓN",
                         "texto": "Utilizamos empaques diseñados para proteger la integridad del producto, manteniendo su calidad premium durante los trayectos de larga distancia.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cosecha-ep5.jpg"
                     },
                     {
                         "etiqueta": "Etapa 6",
                         "titulo": "DISTRIBUCIÓN GLOBAL",
                         "texto": "Gestionamos una logística eficiente para conectar nuestro fundo con mercados estratégicos en Europa, Asia y América, cumpliendo cada contrato con puntualidad.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cosecha-ep6.jpg"
                     }
                 ]
             },
             "guia_cuidado": {
-                "titulo": "GUÍA DE CUIDADO\nMAXIMIZA LA FRESCURA DE TU HIGO KIARITA",
+                "titulo": "Guia de Cuidado\nMaximiza la frescura de tu Higo Kiarita",
                 "pasos": [
                     {
                         "etiqueta": "Paso 1",
                         "titulo": "INSPECCIÓN Y REPOSO SECO",
                         "texto": "Al recibir tus higos de Nuevo Chimbote, retíralos del empaque original y colócalos en un plato o bandeja en una sola capa. Evita lavarlos hasta el momento exacto en que vayas a consumirlos, ya que la humedad acelera su maduración.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cuidado-ep1.jpg"
                     },
                     {
                         "etiqueta": "Paso 2",
                         "titulo": "REFRIGERACIÓN ESTRATÉGICA",
                         "texto": "Para mantener esa frescura premium por más tiempo, guárdalos en la parte menos fría del refrigerador (cajón de frutas). Te recomendamos cubrirlos con una servilleta de papel absorbente para proteger su delicada piel de la condensación.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cuidado-ep2.jpg"
                     },
                     {
                         "etiqueta": "Paso 3",
                         "titulo": "CONSERVACIÓN A LARGO PLAZO",
                         "texto": "Si no planeas consumirlos en los próximos 2 o 3 días, puedes congelarlos. Colócalos enteros o cortados en un recipiente hermético; así mantendrán sus propiedades y sabor para ser usados en batidos, postres o mermeladas artesanales.",
-                        "imagen": ""
+                        "imagen": "/imagenes/cuidado-ep3.jpg"
                     }
                 ]
             },
             "sugerencias": {
-                "titulo": "SUGERENCIAS DE DEGUSTACIÓN",
+                "titulo": "Sugerencias de Degustación",
                 "items": [
                     {
-                        "titulo": "ENSALADA GOURMET DE HIGOS ->",
+                        "link": "https://chalo-portafolio.vercel.app/",
+                        "link_titulo": "ENSALADA GOURMET DE HIGOS ->",
                         "texto": "El toque elegante de tus cenas",
-                        "imagen": ""
+                        "imagen": "/imagenes/preparacion-1.jpg"
                     },
                     {
-                        "titulo": "BRUSCHETTAS CON QUESO Y HIGO ->",
+                        "link": "https://chalo-portafolio.vercel.app/",
+                        "link_titulo": "BRUSCHETTAS CON QUESO Y HIGO ->",
                         "texto": "Un contraste de sabores premium",
-                        "imagen": ""
+                        "imagen": "/imagenes/preparacion-2.jpg"
                     },
                     {
-                        "titulo": "ENERGÉTICO DE HIGO ->",
+                        "link": "https://chalo-portafolio.vercel.app/",
+                        "link_titulo": "ENERGÉTICO DE HIGO ->",
                         "texto": "Potencia natural para tu día",
-                        "imagen": ""
+                        "imagen": "/imagenes/preparacion-3.jpg"
                     }
                 ]
             },
             "faq": {
-                "titulo": "HIGO: DATOS Y DUDAS",
+                "titulo": "Datos y Preguntas",
                 "preguntas": [
                     {
                         "pregunta": "¿Es el higo realmente una fruta?",
@@ -397,15 +397,15 @@
                     },
                     {
                         "pregunta": "¿En qué se diferencia el higo de Nuevo Chimbote?",
-                        "respuesta": ""
+                        "respuesta": "El microclima único de Nuevo Chimbote, caracterizado por su excelente luminosidad y suelos fértiles, crea las condiciones perfectas para el cultivo del higo. Esta ventaja geográfica, sumada a nuestra gestión sostenible del agua, permite que los higos de Fundo La Kiarita alcancen un nivel de grados Brix (dulzor) superior, un calibre excepcional y una piel resistente, características que los mercados internacionales más exigentes buscan."
                     },
                     {
                         "pregunta": "¿Cuál es el valor nutricional de un higo Kiarita?",
-                        "respuesta": ""
+                        "respuesta": "Nuestros higos son una fuente natural de energía y bienestar. Destacan por su altísimo contenido de fibra dietética, esencial para la salud digestiva, además de aportar minerales clave como potasio, calcio y magnesio. Cuidamos rigurosamente nuestros procesos de cosecha para garantizar que el fruto conserve intactas sus vitaminas y propiedades, ofreciendo un alimento premium y altamente nutritivo."
                     },
                     {
                         "pregunta": "¿Por qué el higo es considerado un \"superalimento\" hoy?",
-                        "respuesta": ""
+                        "respuesta": "El higo se ha consolidado como un superalimento gracias a su asombrosa densidad nutricional. Es rico en antioxidantes (como los polifenoles) que protegen el cuerpo, ayuda a la salud cardiovascular y actúa como un endulzante natural perfecto, aportando energía sostenida sin necesidad de azúcares refinados. Un higo de calidad de exportación es, sin duda, un aliado clave para un estilo de vida saludable."
                     }
                 ]
             }

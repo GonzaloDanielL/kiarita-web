@@ -16,12 +16,13 @@ import ContenidoSecciones from "../components/shared/contenidoSecciones.astro";
 import HistoriaBloque from "../components/empresa/HistoriaBloque.astro";
 import ContenedorSecciones from "../components/shared/contenedorSecciones.astro";
 import HeroPagina from "../components/shared/HeroPagina.astro";
-import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
 import ContenedorFondoImagen from "../components/empresa/contenedorFondoImagen.astro";
 import ContenidoMision from "../components/empresa/contenidoMision.astro";
+import ImagenSecciones from "../components/shared/imagenSecciones.astro";
 
 // datos
 import data from "../data/datos.json";
+import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
 
 // variables para los datos
 const { titulo, subtitulo, imagen_fondo } = data.paginas.empresa.hero;
@@ -79,8 +80,8 @@ const getImagePath = (jsonPath: string) => {
     />
 
     <!-- sobre nosotros -->
-    <ContenedorSecciones color="bg-kiarita-white" tipo="limpio">
-        <SubContenedorSecciones extrastyle="space-y-6">
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones extrastyle="space-y-6" tipo="limpio">
             <ContenidoSecciones
                 title={tituloNosotros}
                 posicionTitulo="text-center"
@@ -88,7 +89,7 @@ const getImagePath = (jsonPath: string) => {
             />
             {
                 descripcion_larga.map((parrafo: string) => (
-                    <p class="font-inter text-kiarita-gray-dark font-medium leading-relaxed text-sm md:text-base text-center space-y-6">
+                    <p class="font-inter text-kiarita-gray-dark leading-relaxed text-sm md:text-base text-center space-y-6">
                         {parrafo}
                     </p>
                 ))
@@ -98,8 +99,8 @@ const getImagePath = (jsonPath: string) => {
 
     <!-- misión y visión -->
     <ContenedorFondoImagen imagen={imgMision}>
-        <SubContenedorSecciones>
-            <div class="relative z-20 px-6 lg:px-[80px] max-w-7xl mx-auto">
+        <SubContenedorSecciones tipo="limpio">
+            <div class="relative z-20">
                 <div class="flex flex-row gap-25">
                     <ContenidoMision
                         titulo_mision={titulo_mision}
@@ -118,8 +119,8 @@ const getImagePath = (jsonPath: string) => {
     </ContenedorFondoImagen>
 
     <!-- valores -->
-    <ContenedorSecciones tipo="limpio" color="bg-kiarita-green-dark">
-        <SubContenedorSecciones>
+    <ContenedorSecciones color="bg-kiarita-green-dark">
+        <SubContenedorSecciones tipo="limpio">
             <ContenidoSecciones
                 title={tituloValores}
                 posicionTitulo="text-center mb-20"
@@ -160,8 +161,8 @@ const getImagePath = (jsonPath: string) => {
     </ContenedorSecciones>
 
     <!-- historia -->
-    <ContenedorSecciones color="bg-kiarita-white" tipo="limpio">
-        <SubContenedorSecciones>
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones tipo="limpio">
             <ContenidoSecciones
                 title={tituloHistoria}
                 posicionTitulo="text-center"
@@ -185,41 +186,27 @@ const getImagePath = (jsonPath: string) => {
 
     <!-- social 1 -->
     <ContenedorSecciones color="bg-kiarita-gray-lighter">
-        <div class="w-full h-full">
-            <Image
-                src={getImagePath(imagenSocial1)}
-                alt="Higo Fundo La Kiarita"
-                class="w-full h-full object-cover object-[10%]"
-                width={800}
-                height={600}
-            />
-        </div>
         <SubContenedorSecciones>
+            <ImagenSecciones imagen={imagenSocial1} posicion="object-[10%]" />
+
             <ContenidoSecciones
                 title={tituloSocial1}
                 descripcion={textoSocial1}
-                colorTitulo="text-kiarita-purple"
+                colorTitulo="text-kiarita-green"
             />
         </SubContenedorSecciones>
     </ContenedorSecciones>
 
     <!-- social 2 -->
-    <ContenedorSecciones color="bg-kiarita-gray-lighter">
+    <ContenedorSecciones color="bg-kiarita-white">
         <SubContenedorSecciones>
             <ContenidoSecciones
                 title={tituloSocial2}
                 descripcion={textoSocial2}
-                colorTitulo="text-kiarita-purple"
+                colorTitulo="text-kiarita-green"
             />
+
+            <ImagenSecciones imagen={imagenSocial2} posicion="object-[10%]" />
         </SubContenedorSecciones>
-        <div class="w-full h-full">
-            <Image
-                src={getImagePath(imagenSocial2)}
-                alt="Higo Fundo La Kiarita"
-                class="w-full h-full object-cover object-[10%]"
-                width={800}
-                height={600}
-            />
-        </div>
     </ContenedorSecciones>
 </Layout>

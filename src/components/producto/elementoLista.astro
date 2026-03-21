@@ -1,0 +1,83 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    elemento: any;
+    colorBorde?: string;
+    colorTexto?: string;
+    colorTitulo?: string;
+    colorEtiqueta?: string;
+}
+
+const {
+    elemento,
+    colorBorde = "border-kiarita-green",
+    colorTexto = "text-kiarita-gray-dark",
+    colorTitulo = "text-kiarita-green",
+    colorEtiqueta = "text-kiarita-green",
+} = Astro.props;
+
+// --- LÓGICA DE IMÁGENES ---
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const getImagePath = (jsonPath: string) => {
+    const fullPath = `/src/assets${jsonPath}`;
+    if (!localImages[fullPath])
+        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
+    return localImages[fullPath]();
+};
+---
+
+<div class="flex flex-col items-start">
+    {
+        elemento.etiqueta && (
+            <span class={`font-inter font-bold text-sm ${colorEtiqueta} mb-3`}>
+                {elemento.etiqueta}
+            </span>
+        )
+    }
+    <Image
+        src={getImagePath(elemento.imagen)}
+        alt="Vista de campos Fundo La Kiarita"
+        class={`w-full h-60 object-cover border-b-8 rounded-2xl mb-4 shadow-sm ${colorBorde}`}
+    />
+    {
+        elemento.titulo && (
+            <h4
+                class={`font-commissioner font-bold text-lg md:text-xl mb-2 ${colorTitulo}`}
+            >
+                {elemento.titulo}
+            </h4>
+        )
+    }{
+        elemento.link && (
+            <a
+                href={elemento.link}
+                class="font-commissioner font-bold text-lg md:text-xl text-kiarita-white mb-2 hover:text-kiarita-gray-lighter transition-colors inline-flex items-center group"
+            >
+
+                {elemento.link_titulo.replace("->", "")}
+                <svg
+                    class="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                </svg>
+            </a>
+        )
+    }
+    <p
+        class={`font-inter leading-relaxed font-medium text-sm md:text-base ${colorTexto}`}
+    >
+        {elemento.texto}
+    </p>
+</div>

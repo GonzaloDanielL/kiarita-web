@@ -6,6 +6,7 @@ interface Props {
     colorTexto?: string;   // Color de descripcion
     posicionTitulo?: string; // Posición de titulo
     tamañoTitulo?: string; // Tamaño de titulo
+    parrafos?: string[];
 }
 
 const { 
@@ -15,22 +16,36 @@ const {
     colorTitulo = "text-kiarita-green", 
     colorTexto = "text-kiarita-gray-dark",
     posicionTitulo = "text-left",
+    parrafos
 } = Astro.props;
 ---
 
 <div class="flex flex-col w-full">
     <h2
-        class={`font-commissioner font-extrabold ${tamañoTitulo} ${colorTitulo} uppercase mb-6 leading-tight w-full ${posicionTitulo}`}
+        class={`font-commissioner font-extrabold ${tamañoTitulo} ${colorTitulo} mb-6 leading-tight w-full ${posicionTitulo}`}
     >
         {title}
     </h2>
     {
-        descripcion.length > 100 && (
+        descripcion && (
             <p
-                class={`mb-10 ${colorTexto} leading-relaxed text-base font-medium`}
+                class={`mb-10 ${colorTexto} leading-relaxed text-base font-normal`}
             >
                 {descripcion}
             </p>
+        )
+    }
+    {
+        parrafos && (
+            <div class="flex flex-col gap-4 mb-10">
+                {
+                    parrafos.map((parrafo: string) => (
+                        <p class={`font-inter text-kiarita-gray-dark leading-relaxed text-base`}>
+                            {parrafo}
+                        </p>
+                    ))
+                }
+            </div>
         )
     }
 </div>
