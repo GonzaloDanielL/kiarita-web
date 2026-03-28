@@ -43,6 +43,7 @@ const getImagePath = (jsonPath: string | undefined) => {
         <Image
             src={getImagePath(imagen_fondo)!}
             alt={`Fondo de ${titulo}`}
+            width={1280}
             class="absolute inset-0 w-full h-full object-cover z-0"
         />
     ) : null}

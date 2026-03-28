@@ -1,0 +1,140 @@
+<div class="w-full h-full">
+    <div id="map"></div>
+</div>
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css"
+/>
+
+<script>
+    import jsVectorMap from "jsvectormap";
+    import "jsvectormap/dist/maps/world.js";
+
+    const mapElement = document.getElementById("map");
+
+    if (mapElement) {
+        new jsVectorMap({
+            selector: "#map",
+            map: "world",
+            backgroundColor: "transparent",
+            zoomOnScroll: false,
+
+            // Le indicamos al mapa qué países deben tomar el color 'selected'
+            selectedRegions: ["PE", "US", "ES", "FR", "GB", "CN", "JP"],
+
+            // Estilo base de los países
+            regionStyle: {
+                initial: {
+                    fill: "#dcdcdc", 
+                    fillOpacity: 1,
+                    stroke: "#FFFFFF",
+                    strokeWidth: 0.5,
+                },
+                hover: {
+                    fillOpacity: 1, 
+                },
+                selected: {
+                    fill: "#bababa", 
+                },
+                selectedHover: {
+                    fill: "#bababa", 
+                }
+            },
+
+            // 1. Definimos los puntos (Latitud, Longitud)
+            markers: [
+                { name: "Nuevo Chimbote, Perú", coords: [-9.1197, -78.5306] }, 
+                { name: "Estados Unidos", coords: [37.0902, -95.7129] },
+                { name: "España", coords: [40.4637, -3.7492] },
+                { name: "Francia", coords: [46.2276, 2.2137] },
+                { name: "Reino Unido", coords: [55.3781, -3.436] },
+                { name: "China", coords: [35.8617, 104.1954] },
+                { name: "Japón", coords: [36.2048, 138.2529] },
+            ],
+
+            // NUEVO: Configuración para que las etiquetas (nombres) sean siempre visibles
+            labels: {
+                markers: {
+                    render(marker: any) {
+                        return marker.name; // Renderiza el nombre definido en el array de markers
+                    },
+                    offsets: function (index: number) {
+                        // Desplaza ligeramente el texto para que no tape el punto
+                        // [Eje X, Eje Y]. Ajusta si algún nombre se pisa con otro.
+                        return [0, 10]; 
+                    }
+                }
+            },
+
+            // NUEVO: Estilo del texto de las etiquetas
+            markerLabelStyle: {
+                initial: {
+                    fontFamily: "Inter, sans-serif",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    fill: "#222222", // Gris oscuro para buena lectura
+                },
+                hover: {
+                    fill: "#222222", // Se pone verde al pasar el cursor
+                }
+            },
+
+            // 2. Estilo de los puntos (Pines)
+            markerStyle: {
+                initial: {
+                    fill: "#1cc40a",
+                    r: 6, 
+                    stroke: "#82ff75", 
+                    strokeWidth: 2,
+                },
+                hover: {
+                    fill: "#1cc40a",
+                    stroke: "#82ff75",
+                    r: 10,
+                },
+            },
+
+            // 3. Definimos las conexiones (De -> A)
+            lines: [
+                { from: "Nuevo Chimbote, Perú", to: "Estados Unidos" },
+                { from: "Nuevo Chimbote, Perú", to: "España" },
+                { from: "Nuevo Chimbote, Perú", to: "Francia" },
+                { from: "Nuevo Chimbote, Perú", to: "Reino Unido" },
+                { from: "Nuevo Chimbote, Perú", to: "China" },
+                { from: "Nuevo Chimbote, Perú", to: "Japón" },
+            ],
+
+            // 4. Estilo de las líneas
+            lineStyle: {
+                stroke: "#8F8F8F", 
+                strokeWidth: 1.5,
+                strokeOpacity: 1,
+                strokeDasharray: "6 3 6", 
+                fill: "none",
+                animation: true, 
+            },
+
+            // Tooltip para cuando pasen el mouse sobre un punto
+            onMarkerTooltipShow(event: any, tooltip: any, index: any) {
+                tooltip.text(tooltip.text());
+            },
+            
+            // Tooltip para las regiones (países)
+            onRegionTooltipShow(event: any, tooltip: any, code: any) {
+                tooltip.text(tooltip.text());
+            }
+        });
+    }
+</script>
+
+<style>
+    /* Ajustes para que el tooltip combine con tu diseño */
+    :global(.jvm-tooltip) {
+        background-color: #222222 !important; /* kiarita-black */
+        font-family: "Inter", sans-serif !important;
+        border-radius: 8px !important;
+        padding: 8px 12px !important;
+        border: none !important;
+    }
+</style>

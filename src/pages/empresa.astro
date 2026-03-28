@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import {
     CheckCircle2,
     ClipboardCheck,
@@ -57,18 +56,6 @@ const iconosValores = [
     Search,
     Leaf,
 ];
-
-// funcion para obtener la ruta de la imagen
-const localImages = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
-);
-
-const getImagePath = (jsonPath: string) => {
-    const fullPath = `/src/assets${jsonPath}`;
-    if (!localImages[fullPath])
-        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
-    return localImages[fullPath]();
-};
 ---
 
 <Layout>

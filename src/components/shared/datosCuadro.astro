@@ -12,14 +12,17 @@ if (tipo === "tipo-1") {
     tema = "border border-kiarita-green";
 } else if (tipo === "tipo-2") {
     tema = "bg-kiarita-white";
+} else if (tipo === "tipo-3") {
+    // Nuevo tipo para la página de alcance: fondo gris súper claro, sin bordes
+    tema = "bg-kiarita-gray-lighter"; 
 }
 ---
 
-<div class={`${tema} p-6 text-center w-40 rounded-sm`}>
-    <span class="block font-commissioner font-bold text-4xl text-kiarita-green"
-        >{numero}</span
-    >
-    <span class="text-sm text-kiarita-gray-dark font-medium mt-1 block"
-        >{texto}</span
-    >
+<div class={`${tema} p-6 text-center w-40 md:w-48 rounded-lg shadow-sm hover:shadow-md transition-shadow`}>
+    <span class="block font-commissioner font-bold text-3xl lg:text-4xl text-kiarita-green">
+        {numero}
+    </span>
+    <span class="text-sm lg:text-base text-kiarita-gray-dark font-medium mt-2 block uppercase tracking-wide">
+        {texto}
+    </span>
 </div>

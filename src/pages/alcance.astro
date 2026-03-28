@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+import HeroPagina from "../components/shared/HeroPagina.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+import data from "../data/datos.json";
+import ContenedorSecciones from "../components/shared/contenedorSecciones.astro";
+import SubContenedorSecciones from "../components/shared/subContenedorSecciones.astro";
+import ContenidoSecciones from "../components/shared/contenidoSecciones.astro";
+import DatosCuadro from "../components/shared/datosCuadro.astro";
+import Mapa2 from "../components/ui/mapa2.astro";
+
+const { titulo, subtitulo, imagen_fondo } = data.paginas.alcance.hero;
+// Extraemos las estadísticas globales
+const { anios, trabajadores, toneladas_exportadas, paises, hectareas } =
+    data.global.estadisticas;
+
+const { titulo: titulopresencia } = data.paginas.alcance.presencia_global;
+
+const { certificaciones } = data.global;
+
+// funcion para obtener la ruta de la imagen
+const localImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/imagenes/*.{jpeg,jpg,png,gif,webp}",
+);
+
+const getImagePath = (jsonPath: string) => {
+    const fullPath = `/src/assets${jsonPath}`;
+    if (!localImages[fullPath])
+        throw new Error(`La imagen "${fullPath}" no existe en src/assets.`);
+    return localImages[fullPath]();
+};
+---
+
+<Layout>
+    <!-- Hero de la página -->
+    <HeroPagina
+        titulo={titulo}
+        subtitulo={subtitulo}
+        imagen_fondo={imagen_fondo}
+    />
+
+    <!-- Mapa de trazabilidad -->
+    <ContenedorSecciones color="bg-kiarita-white">
+        <SubContenedorSecciones tipo="limpio">
+            <ContenidoSecciones
+                title={titulopresencia}
+                colorTitulo="text-kiarita-green"
+                posicionTitulo="text-center mb-20"
+            />
+            <div
+                class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-4 xl:gap-8"
+            >
+                <div
+                    class="flex flex-col sm:flex-row lg:flex-row gap-6 order-2 lg:order-1"
+                >
+                    <div
+                        class="flex flex-row lg:flex-col flex-wrap justify-center gap-6"
+                    >
+                        <DatosCuadro
+                            numero={anios}
+                            texto="Años de Experiencia"
+                            tipo="tipo-1"
+                        />
+                        <DatosCuadro
+                            numero={paises}
+                            texto="Países de Destino"
+                            tipo="tipo-1"
+                        />
+                        <DatosCuadro
+                            numero={trabajadores}
+                            texto="Colaboradores"
+                            tipo="tipo-1"
+                        />
+                    </div>
+
+                    <div
+                        class="flex flex-row lg:flex-col flex-wrap justify-start gap-6"
+                    >
+                        <DatosCuadro
+                            numero={toneladas_exportadas}
+                            texto="Toneladas Exportadas"
+                            tipo="tipo-1"
+                        />
+                        <DatosCuadro
+                            numero={hectareas}
+                            texto="Hectáreas de Cultivo"
+                            tipo="tipo-1"
+                        />
+                    </div>
+                </div>
+
+                <div
+                    class="w-full lg:w-[600px] xl:w-[800px] h-[350px] md:h-[450px] lg:h-[500px] order-1 lg:order-2 rounded-3xl p-4"
+                >
+                    <Mapa2 />
+                </div>
+            </div>
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+
+    <!-- Certificaciones -->
+    <ContenedorSecciones color="bg-kiarita-gray-lighter">
+        <SubContenedorSecciones tipo="limpio">
+            <ContenidoSecciones
+                title={titulopresencia}
+                colorTitulo="text-kiarita-green"
+                posicionTitulo="text-center mb-20"
+            />
+
+            <div class="flex flex-wrap gap-20 justify-center">
+                {
+                    certificaciones.map((certificacion: any) => (
+                        <div
+                            class="flex flex-col items-center justify-center w-[350px]"
+                        >
+                            <Image
+                                src={getImagePath(certificacion.imagen)}
+                                alt={certificacion.nombre}
+                                class="w-auto h-28 object-contain"
+                            />
+                            <h4 class="mt-8 font-commissioner font-bold text-lg md:text-xl">
+                                {certificacion.nombre}
+                            </h4>
+                            <p class="mt-4 font-inter text-kiarita-gray-dark leading-relaxed text-base font-normal text-center">
+                                {certificacion.descripcion}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+
+        </SubContenedorSecciones>
+    </ContenedorSecciones>
+</Layout>

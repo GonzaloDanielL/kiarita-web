@@ -1,6 +1,12 @@
 ---
 // En el Frontmatter NO importamos la librería de JS
 // Solo podrías importar datos o tipos si fuera necesario.
+interface Props {
+    colorLineas?: string;
+}
+
+const { colorLineas = "FFFFFF" } = Astro.props;
+
 ---
 
 <div class="w-full h-full">
@@ -44,7 +50,7 @@
                     fill: "#249A18", // El gris oscuro que pediste
                 },
                 selectedHover: {
-                    fill: "#4D4D4D", // Evita que los países marcados cambien al pasar el cursor
+                    fill: "#249A18", // Evita que los países marcados cambien al pasar el cursor
                 }
             },
 
